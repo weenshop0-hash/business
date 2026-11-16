@@ -901,6 +901,34 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
 
 .viewsw[hidden]{display:none}.vname{min-width:104px;text-align:center;display:inline-flex;align-items:center;justify-content:center;cursor:default;white-space:nowrap}
 .vpick .vs:not(.vname){font-size:18px;font-weight:800}
+
+/* ===== جوال: عناصر أصغر ===== */
+@media (max-width:640px){
+  .hv-stage{height:calc(var(--ch)*var(--hf,1) + 46px)}
+  .hv-card{border-radius:14px}
+  .hero-bar{gap:6px}
+  .hbtn,.hero-bar .hbtn{height:32px;padding:0 10px;font-size:12px;gap:5px}
+  .hbtn svg,.hbtn i{width:14px;height:14px}
+  .hero h1{font-size:1.6rem}.hero p{font-size:.85rem}
+  .hv-sw button,.hv-styles button{font-size:11px;padding:4px 10px}
+  .gdock{padding:6px 4px;gap:3px;border-radius:20px}.gd-item,.gd-pill{width:34px;height:34px;border-radius:12px}.gd-item svg{width:18px;height:18px}
+  .secgrid{grid-template-columns:repeat(auto-fill,minmax(min(100%,64px),1fr));gap:5px}
+  .stile{padding:6px 2px 5px;border-radius:14px;gap:4px}.stile b{font-size:.68rem}.sico{width:26px;height:26px;border-radius:9px}.stile small,.stile .cnt{font-size:9.5px}
+  .secgrid.gal{padding:30px 22px 34px}.gal .stile{flex-basis:70px;height:112px;margin-inline-end:-16px}.gal .stile:hover,.gal .stile[aria-pressed="true"]{flex-basis:120px}
+  .sec-head h2{font-size:1rem}.viewsw .vs{font-size:11px;padding:0 8px;min-height:30px}.vname{min-width:80px}
+  .rgrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+  .pcard{border-radius:12px}.pc-cat,.pc-ex{font-size:8px;padding:0 5px;inset-block-start:4px;inset-inline-end:4px;max-width:calc(100% - 8px)}.pc-ex{inset-inline-start:4px;inset-inline-end:auto}
+  .pc-cover .mono{font-size:1.3rem}
+  .pc-logo{width:24px;height:24px;margin:-13px 6px 0;border-radius:8px;padding:1px}.pc-logo>span{border-radius:7px;font-size:.6rem}
+  .pc-body{padding:3px 6px 0;gap:2px}.pc-body h4{font-size:.62rem;line-height:1.3}.pc-body p,.pc-meta{display:none}
+  .pc-foot{padding:3px 6px 6px}.pc-foot .sbtn{width:20px;height:20px;border-radius:7px}.pc-foot .sbtn svg{width:11px;height:11px}.more-arrow{width:18px;height:18px}.more-arrow svg{width:10px;height:10px}
+}
+
+@media (max-width:640px){
+  .gal .stile b,.gal .stile .sname{font-size:.62rem!important;line-height:1.25}.gal .stile .sico{width:24px;height:24px}.gal .stile *{font-size:inherit}
+  .gal .stile small,.gal .stile .scount{font-size:8.5px!important}.gal .stile .sedit{width:20px;height:20px}
+  .sec-head{gap:6px}.sec-head .btn.sm{min-height:30px;font-size:11px;padding:0 10px}
+}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -2118,7 +2146,7 @@ function hvBuild(){
 function hvApplyStyle(){const T=HVS[HV.style],tr=$('#hvTrack'),st=$('#hvStage');if(HV.last===HV.style)return;
   if(HV.last){tr.classList.add('sw');clearTimeout(HV.swT);HV.swT=setTimeout(()=>tr.classList.remove('sw'),1000)}
   HV.last=HV.style;tr.style.transform=T.tilt?'rotateX('+T.tilt+'deg)':'';st.style.setProperty('--hf',T.h||1)}
-function hvSize(){const st=$('#hvStage'),W=st.clientWidth,ch=Math.max(190,Math.min(250,W*.24));st.style.setProperty('--ch',ch+'px');st.style.setProperty('--cw',(ch*.7)+'px');HV.cw=ch*.7;HV.ch=ch}
+function hvSize(){const st=$('#hvStage'),W=st.clientWidth,ch=W<640?Math.max(104,Math.min(132,W*.31)):Math.max(190,Math.min(250,W*.24));st.style.setProperty('--ch',ch+'px');st.style.setProperty('--cw',(ch*.7)+'px');HV.cw=ch*.7;HV.ch=ch}
 const HVF={
  sphere(els,T){const n=els.length,R=HV.ch*.92,k=360/n;els.forEach((el,i)=>{const y=1-(i+.5)/n*2,lat=Math.asin(y)*57.2958,lon=i*137.508+HV.pos*k;
    el.style.transformOrigin='50% 50%';el.style.transform='rotateY('+lon.toFixed(2)+'deg) rotateX('+lat.toFixed(2)+'deg) translateZ('+R.toFixed(0)+'px) scale(.4)';el.style.opacity=1;el.style.visibility='visible';el.style.zIndex=1})},
