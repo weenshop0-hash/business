@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-mode="night">
-<head>
+<html lang="ar" dir="rtl" data-mode="night"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>دليلك في المشاريع المنزلية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@400;500;600;700;800&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;family=Readex+Pro:wght@400;500;600;700;800&amp;family=Aref+Ruqaa:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
 /* ============ الثيم: أسود · رمادي · أبيض · ذهبي (نهار / ليل) ============ */
 :root{
@@ -956,7 +955,7 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer=""></script>
 </head>
 <body>
 <canvas id="bgCanvas" aria-hidden="true"></canvas>
@@ -969,13 +968,13 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
     <div class="hero-bar">
       <button class="hbtn" id="acctBtn" type="button" data-act="acct" aria-label="حساب التاجر"><i data-lucide="user-round"></i><span class="t" id="acctLbl">دخول التاجر</span></button>
       <button class="hbtn" id="callBtn" type="button" data-act="contact" aria-label="للاستفسار"><i data-lucide="phone"></i><span class="t">للاستفسار</span></button>
-      <button class="hbtn" id="inboxBtn" type="button" data-act="inbox" aria-label="رسائلي"><i data-lucide="message-circle"></i><span class="t">رسائلي</span><span class="hbadge" id="inboxBadge" hidden>0</span></button>
+      <button class="hbtn" id="inboxBtn" type="button" data-act="inbox" aria-label="رسائلي"><i data-lucide="message-circle"></i><span class="t">رسائلي</span><span class="hbadge" id="inboxBadge" hidden="">0</span></button>
       <button class="hbtn" id="editTextBtn" type="button" aria-pressed="false"><i data-lucide="type"></i><span class="t">تعديل النصوص</span></button>
       <button class="hbtn" id="themeBtn" type="button" data-act="theme"><i data-lucide="palette"></i><span class="t">المظهر</span></button>
       <button class="hbtn" id="bkBtn" type="button" data-act="backup"><i data-lucide="cloud-upload"></i><span class="t">الحفظ والنسخ</span></button>
       <button class="hbtn" id="modeBtn" type="button"><span id="modeIconW" style="display:inline-grid"><i data-lucide="moon"></i></span><span class="t" id="modeLbl">مساء</span></button>
       <button class="hbtn" id="linkTop" type="button" data-act="linkDrive"><i data-lucide="link"></i><span class="t">ربط Drive</span></button>
-      <span class="edit-hint" id="editHint" hidden>وضع التعديل مفعّل: اضغط على أي نص أو على الأيقونة لتغييرها</span>
+      <span class="edit-hint" id="editHint" hidden="">وضع التعديل مفعّل: اضغط على أي نص أو على الأيقونة لتغييرها</span>
     </div>
     <div class="hero-main">
       <button class="hero-icon" id="heroIcon" type="button" aria-label="أيقونة الصفحة"><span id="heroIconInner"></span><span class="pen"><i data-lucide="pencil"></i></span></button>
@@ -984,15 +983,15 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
       <p data-edit="subtitle">أكبر تجمع للمشاريع الصغيرة والمنزلية في منصة واحدة تفاعلية ومحدثة بشكل يومي</p>
     </div>
     <div class="hv-wrap">
-      <span class="hv-note n1" aria-hidden="true">شاهد أحدث المشاريع<svg viewBox="0 0 90 60" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 8c40-6 72 8 70 40"/><path d="M64 38l12 12 10-14"/></svg></span>
+      <span class="hv-note n1" aria-hidden="true">شاهد أحدث المشاريع<svg viewBox="0 0 90 60" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 8c40-6 72 8 70 40"></path><path d="M64 38l12 12 10-14"></path></svg></span>
       <div class="hv-stage" id="hvStage" role="region" aria-label="عرض مشاريع المنصة"><div class="hv-track" id="hvTrack"></div></div>
       <div class="hv-ctl" id="hvCtl" role="group" aria-label="نموذج العرض"></div>
     </div>
-    <div class="hv-cta-w"><span class="hv-note n2" aria-hidden="true">التسجيل مجاني<svg viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 8c30-8 56 0 62 22"/><path d="M54 24l12 8 4-14"/></svg></span><button class="hv-cta" type="button" data-act="addProject"><span>أضف مشروعك الآن</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+    <div class="hv-cta-w"><span class="hv-note n2" aria-hidden="true">التسجيل مجاني<svg viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 8c30-8 56 0 62 22"></path><path d="M54 24l12 8 4-14"></path></svg></span><button class="hv-cta" type="button" data-act="addProject"><span>أضف مشروعك الآن</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button></div>
   </div>
 </header>
 
-<nav class="gdock" id="gdock" aria-label="القائمة الرئيسية"><button class="gd-item pri" type="button" data-act="addProject" aria-label="إضافة مشروع"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span class="gd-t">إضافة مشروع</span></span></button><button class="gd-item" type="button" data-act="editTop" aria-label="تعديل البيانات"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z"/><path d="m13.5 6.5 4 4"/></svg><span class="gd-t">تعديل البيانات</span></span></button><button class="gd-item" type="button" data-act="deleteTop" aria-label="حذف المشروع"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg><span class="gd-t">حذف المشروع</span></span></button><button class="gd-item" type="button" data-act="resetF" aria-label="إعادة الضبط"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg><span class="gd-t">إعادة الضبط</span></span></button><i class="gd-sep" aria-hidden="true"></i><button class="gd-item" type="button" data-act="allSecs" aria-label="كل الأقسام"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></svg><span class="gd-t">كل الأقسام</span></span></button><button class="gd-item" type="button" data-act="allGovs" aria-label="كل المحافظات"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="gd-t">كل المحافظات</span></span></button><i class="gd-sep" aria-hidden="true"></i><button class="gd-item" type="button" data-act="dlPage" aria-label="تنزيل الصفحة"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 11 12 15.5 16.5 11M5 19.5h14"/></svg><span class="gd-t">تنزيل الصفحة</span></span></button><button class="gd-item" type="button" data-act="contact" aria-label="الاستفسار"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.7 7L4 20l1.2-4.5A8 8 0 1 1 21 12Z"/><path d="M8.5 11h7M8.5 14h4"/></svg><span class="gd-t">الاستفسار</span></span></button><button class="gd-item" type="button" data-act="help" aria-label="المساعدة"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1 .8-1 1.6M12 16.8v.1"/></svg><span class="gd-t">المساعدة</span></span></button></nav>
+<nav class="gdock" id="gdock" aria-label="القائمة الرئيسية"><button class="gd-item pri" type="button" data-act="addProject" aria-label="إضافة مشروع"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg><span class="gd-t">إضافة مشروع</span></span></button><button class="gd-item" type="button" data-act="editTop" aria-label="تعديل البيانات"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z"></path><path d="m13.5 6.5 4 4"></path></svg><span class="gd-t">تعديل البيانات</span></span></button><button class="gd-item" type="button" data-act="deleteTop" aria-label="حذف المشروع"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4h6v3"></path></svg><span class="gd-t">حذف المشروع</span></span></button><button class="gd-item" type="button" data-act="resetF" aria-label="إعادة الضبط"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></svg><span class="gd-t">إعادة الضبط</span></span></button><i class="gd-sep" aria-hidden="true"></i><button class="gd-item" type="button" data-act="allSecs" aria-label="كل الأقسام"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="2"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="2"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="2"></rect></svg><span class="gd-t">كل الأقسام</span></span></button><button class="gd-item" type="button" data-act="allGovs" aria-label="كل المحافظات"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg><span class="gd-t">كل المحافظات</span></span></button><i class="gd-sep" aria-hidden="true"></i><button class="gd-item" type="button" data-act="dlPage" aria-label="تنزيل الصفحة"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 11 12 15.5 16.5 11M5 19.5h14"></path></svg><span class="gd-t">تنزيل الصفحة</span></span></button><button class="gd-item" type="button" data-act="contact" aria-label="الاستفسار"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.7 7L4 20l1.2-4.5A8 8 0 1 1 21 12Z"></path><path d="M8.5 11h7M8.5 14h4"></path></svg><span class="gd-t">الاستفسار</span></span></button><button class="gd-item" type="button" data-act="help" aria-label="المساعدة"><span class="gd-pill"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1 .8-1 1.6M12 16.8v.1"></path></svg><span class="gd-t">المساعدة</span></span></button></nav>
 <main class="wrap">
   <div class="divider" aria-hidden="true"><i></i></div>
 
@@ -1003,7 +1002,7 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
 
   <section class="sec" aria-label="البحث والتصفية">
     <div class="tools">
-      <label class="search"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">بحث</span><input id="q" type="text" placeholder="ابحث في كامل الدليل: المشروع، القسم، الموقع، الوصف…" autocomplete="off"></label>
+      <label class="search"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="sr">بحث</span><input id="q" type="text" placeholder="ابحث في كامل الدليل: المشروع، القسم، الموقع، الوصف…" autocomplete="off"></label>
       <label class="fsel" id="fTypeW"><i data-lucide="tags"></i><span class="sr">القسم</span><select id="fType"></select></label>
       <label class="fsel" id="fLocW"><i data-lucide="map-pin"></i><span class="sr">الموقع</span><select id="fLoc"></select></label>
       <button class="btn sm" id="resetF" type="button">إعادة ضبط</button>
@@ -1011,7 +1010,7 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
   </section>
 
   <section class="sec" aria-labelledby="secH">
-    <div class="sec-head"><h2 id="secH" data-edit="secHead">أقسام المشاريع</h2><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="count-line" id="count" aria-live="polite"></span><div class="viewsw vpick" role="group" aria-label="طريقة عرض الأقسام"><button type="button" class="vs" data-act="svPrev" aria-label="نمط العرض السابق" title="النمط السابق">›</button><span class="vs vt vname" id="secViewBtn" aria-live="polite">🎴 معرض</span><button type="button" class="vs" data-act="svNext" aria-label="نمط العرض التالي" title="النمط التالي">‹</button></div><div class="viewsw" id="scrollSw" role="group" aria-label="تمرير الأقسام"><button type="button" class="vs" data-act="secPrev" aria-label="السابق">›</button><button type="button" class="vs" data-act="secNext" aria-label="التالي">‹</button></div><button class="btn sm" type="button" data-act="addSec"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>إضافة قسم</button></div></div>
+    <div class="sec-head"><h2 id="secH" data-edit="secHead">أقسام المشاريع</h2><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="count-line" id="count" aria-live="polite"></span><div class="viewsw vpick" role="group" aria-label="طريقة عرض الأقسام"><button type="button" class="vs" data-act="svPrev" aria-label="نمط العرض السابق" title="النمط السابق">›</button><span class="vs vt vname" id="secViewBtn" aria-live="polite">🎴 معرض</span><button type="button" class="vs" data-act="svNext" aria-label="نمط العرض التالي" title="النمط التالي">‹</button></div><div class="viewsw" id="scrollSw" role="group" aria-label="تمرير الأقسام"><button type="button" class="vs" data-act="secPrev" aria-label="السابق">›</button><button type="button" class="vs" data-act="secNext" aria-label="التالي">‹</button></div><button class="btn sm" type="button" data-act="addSec"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>إضافة قسم</button></div></div>
     <div class="secgrid" id="secGrid"></div>
     <div id="results"></div>
   </section>
@@ -1021,14 +1020,14 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
     <div class="mapwrap">
       <div class="mapbox" id="mapBox">
         <div class="mapctl">
-          <button class="ibtn" type="button" data-act="mapZoomIn" aria-label="تقريب"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
-          <button class="ibtn" type="button" data-act="mapZoomOut" aria-label="تبعيد"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
-          <button class="ibtn" type="button" data-act="mapReset" aria-label="إعادة ضبط الخريطة"><svg class="i" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
-          <button class="ibtn" type="button" id="mapLayerBtn" data-act="mapLayer" title="عرض القمر الصناعي" aria-label="تبديل الخريطة والقمر الصناعي"><svg class="i" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></button>
+          <button class="ibtn" type="button" data-act="mapZoomIn" aria-label="تقريب"><svg class="i" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></button>
+          <button class="ibtn" type="button" data-act="mapZoomOut" aria-label="تبعيد"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14"></path></svg></button>
+          <button class="ibtn" type="button" data-act="mapReset" aria-label="إعادة ضبط الخريطة"><svg class="i" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"></path></svg></button>
+          <button class="ibtn" type="button" id="mapLayerBtn" data-act="mapLayer" title="عرض القمر الصناعي" aria-label="تبديل الخريطة والقمر الصناعي"><svg class="i" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></button>
         </div>
         <span class="maphint">اسحب للتحريك · Ctrl + العجلة أو النقر المزدوج للتقريب (حتى مستوى الشارع)</span>
-        <div id="lmap" role="application" aria-label="خريطة سلطنة عمان ومواقع المشاريع"></div><div class="mapfail" id="mapFail" hidden><b>تعذّر تحميل الخريطة</b><span>تحقق من اتصال الإنترنت ثم حدّث الصفحة. قائمة المحافظات وروابط خرائط جوجل تعمل كالمعتاد.</span></div><span class="mapll" id="mapLL" aria-hidden="true"></span>
-        <div class="mapcard" id="mapCard" hidden></div>
+        <div id="lmap" role="application" aria-label="خريطة سلطنة عمان ومواقع المشاريع"></div><div class="mapfail" id="mapFail" hidden=""><b>تعذّر تحميل الخريطة</b><span>تحقق من اتصال الإنترنت ثم حدّث الصفحة. قائمة المحافظات وروابط خرائط جوجل تعمل كالمعتاد.</span></div><span class="mapll" id="mapLL" aria-hidden="true"></span>
+        <div class="mapcard" id="mapCard" hidden=""></div>
       </div>
       <aside class="maplist" id="mapList" aria-label="المشاريع حسب المحافظة"></aside>
     </div>
@@ -1056,7 +1055,7 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
 
 <!-- المساعد -->
 <button class="chat-fab" id="chatFab" type="button" aria-label="فتح المساعد الذكي" aria-expanded="false"><span id="chatFabIcon"></span></button>
-<section class="chat" id="chat" hidden aria-label="المساعد الذكي">
+<section class="chat" id="chat" hidden="" aria-label="المساعد الذكي">
   <div class="chat-head"><span id="chatHeadIcon"></span><b>مساعد الدليل</b>
     <button class="ibtn" type="button" data-act="chatIcon" aria-label="تغيير أيقونة المساعد"><i data-lucide="image-plus"></i></button>
     <button class="ibtn" type="button" data-act="closeChat" aria-label="إغلاق"><i data-lucide="x"></i></button></div>
@@ -1066,104 +1065,104 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
 </section>
 
 <!-- اتصال / استفسار -->
-<div class="modal" id="mContact" hidden role="dialog" aria-modal="true" aria-labelledby="ctT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mContact" hidden="" role="dialog" aria-modal="true" aria-labelledby="ctT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="ctT">للاستفسار</h2><p class="sub">اضغط على البطاقة لمراسلتنا مباشرة عبر الواتساب أو الإنستغرام.</p>
-      <a class="ctcard" id="ctWa" href="https://wa.me/96893690033" target="_blank" rel="noopener noreferrer"><span class="ctav" aria-hidden="true">أ</span><span class="ctx"><b>أحمد الغساني</b><span>الوتس اب: <bdi dir="ltr">93690033</bdi></span></span><span class="ctwa" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z"/><path d="M9 8.5c.3 2.6 2.9 5.2 5.7 5.9l1.3-1.3-2.1-1.2-.9.7c-.9-.4-1.9-1.4-2.3-2.3l.7-.9L10.2 7 9 8.5Z"/></svg></span></a>
-      <a class="ctcard ct-ig" id="ctIg" href="https://www.instagram.com/standsrent/" target="_blank" rel="noopener noreferrer"><span class="ctav" aria-hidden="true">@</span><span class="ctx"><b>إنستغرام</b><span>الحساب: <bdi dir="ltr">@standsrent</bdi></span></span><span class="ctwa ctig" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></span></a></div></div>
+      <a class="ctcard" id="ctWa" href="https://wa.me/96893690033" target="_blank" rel="noopener noreferrer"><span class="ctav" aria-hidden="true">أ</span><span class="ctx"><b>أحمد الغساني</b><span>الوتس اب: <bdi dir="ltr">93690033</bdi></span></span><span class="ctwa" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z"></path><path d="M9 8.5c.3 2.6 2.9 5.2 5.7 5.9l1.3-1.3-2.1-1.2-.9.7c-.9-.4-1.9-1.4-2.3-2.3l.7-.9L10.2 7 9 8.5Z"></path></svg></span></a>
+      <a class="ctcard ct-ig" id="ctIg" href="https://www.instagram.com/standsrent/" target="_blank" rel="noopener noreferrer"><span class="ctav" aria-hidden="true">@</span><span class="ctx"><b>إنستغرام</b><span>الحساب: <bdi dir="ltr">@standsrent</bdi></span></span><span class="ctwa ctig" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle></svg></span></a></div></div>
 </div>
 <!-- الاسم -->
-<div class="modal" id="mLogin" hidden role="dialog" aria-modal="true" aria-labelledby="lgT">
+<div class="modal" id="mLogin" hidden="" role="dialog" aria-modal="true" aria-labelledby="lgT">
   <div class="lg-bg" aria-hidden="true"><i class="lg-blob a"></i><i class="lg-blob b"></i>
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><defs>
-      <linearGradient id="lgG" x1="0" x2="1"><stop offset="0" stop-color="var(--a1)" stop-opacity="0"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="var(--a2)" stop-opacity="0"/></linearGradient>
-      <linearGradient id="lgR" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="var(--a1)" stop-opacity=".0"/><stop offset=".5" stop-color="var(--a1)" stop-opacity=".55"/><stop offset="1" stop-color="var(--a2)" stop-opacity=".05"/></linearGradient></defs>
-      <path class="lg-rib" d="M-120 760C200 520 420 900 760 640S1260 260 1580 420V620C1260 470 1060 900 720 840S160 640 -120 900Z"/>
-      <path class="lg-rib b" d="M-100 330C240 130 460 470 800 300S1240 40 1560 190V330C1260 200 1040 520 760 470S240 300 -100 520Z"/>
-      <path class="lg-str" d="M-100 700C300 480 520 880 900 600S1400 300 1580 440"/>
-      <path class="lg-str s2" d="M-100 760C260 560 560 900 900 660S1380 380 1580 500"/>
-      <path class="lg-str s3" d="M-100 300C260 120 520 460 880 280S1300 60 1580 200"/></svg></div>
+      <linearGradient id="lgG" x1="0" x2="1"><stop offset="0" stop-color="var(--a1)" stop-opacity="0"></stop><stop offset=".5" stop-color="#fff"></stop><stop offset="1" stop-color="var(--a2)" stop-opacity="0"></stop></linearGradient>
+      <linearGradient id="lgR" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="var(--a1)" stop-opacity=".0"></stop><stop offset=".5" stop-color="var(--a1)" stop-opacity=".55"></stop><stop offset="1" stop-color="var(--a2)" stop-opacity=".05"></stop></linearGradient></defs>
+      <path class="lg-rib" d="M-120 760C200 520 420 900 760 640S1260 260 1580 420V620C1260 470 1060 900 720 840S160 640 -120 900Z"></path>
+      <path class="lg-rib b" d="M-100 330C240 130 460 470 800 300S1240 40 1560 190V330C1260 200 1040 520 760 470S240 300 -100 520Z"></path>
+      <path class="lg-str" d="M-100 700C300 480 520 880 900 600S1400 300 1580 440"></path>
+      <path class="lg-str s2" d="M-100 760C260 560 560 900 900 660S1380 380 1580 500"></path>
+      <path class="lg-str s3" d="M-100 300C260 120 520 460 880 280S1300 60 1580 200"></path></svg></div>
   <div class="lg-wrap" id="lgWrap"><div class="lg-tilt"><i class="lg-glow"></i><i class="lg-rim"></i>
     <div class="lg-panel"><i class="lg-flap tl"></i><i class="lg-flap br"></i>
-      <button class="lg-x" data-close type="button" aria-label="إغلاق"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-      <div class="lg-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9l1.2-4.4A1 1 0 0 1 6.2 4h11.6a1 1 0 0 1 1 .6L20 9"/><path d="M4 9a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0A2.7 2.7 0 0 0 20 9"/><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/><path d="M10 20v-4h4v4"/></svg></div>
+      <button class="lg-x" data-close="" type="button" aria-label="إغلاق"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+      <div class="lg-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9l1.2-4.4A1 1 0 0 1 6.2 4h11.6a1 1 0 0 1 1 .6L20 9"></path><path d="M4 9a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0A2.7 2.7 0 0 0 20 9"></path><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"></path><path d="M10 20v-4h4v4"></path></svg></div>
       <h2 class="lg-t" id="lgT">تسجيل دخول <em>التاجر</em></h2>
       <p class="lg-s">سجّل متجرك لتتمكّن من إضافة مشاريعك وتعديلها. اكتب اسم المتجر ورقم هاتفك فقط.</p>
-      <form id="lgForm" novalidate>
-        <label class="lg-f" style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9l1.2-4.4A1 1 0 0 1 6.2 4h11.6a1 1 0 0 1 1 .6L20 9"/><path d="M4 9a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0A2.7 2.7 0 0 0 20 9"/><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/></svg><input id="lgStore" maxlength="60" placeholder="اسم المتجر" autocomplete="organization" aria-label="اسم المتجر"></label>
-        <label class="lg-f" style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg><span class="lg-cc" dir="ltr">+968</span><input id="lgPhone" dir="ltr" inputmode="numeric" maxlength="14" placeholder="9XXXXXXX" autocomplete="tel-national" aria-label="رقم الهاتف"></label>
-        <div class="lg-err" id="lgErr" role="alert" hidden></div>
-        <button class="lg-btn" id="lgGo" type="submit"><span>تسجيل الدخول</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><i class="lg-ld"></i></button>
+      <form id="lgForm" novalidate="">
+        <label class="lg-f" style="--i:1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9l1.2-4.4A1 1 0 0 1 6.2 4h11.6a1 1 0 0 1 1 .6L20 9"></path><path d="M4 9a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0A2.7 2.7 0 0 0 20 9"></path><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"></path></svg><input id="lgStore" maxlength="60" placeholder="اسم المتجر" autocomplete="organization" aria-label="اسم المتجر"></label>
+        <label class="lg-f" style="--i:2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"></path></svg><span class="lg-cc" dir="ltr">+968</span><input id="lgPhone" dir="ltr" inputmode="numeric" maxlength="14" placeholder="9XXXXXXX" autocomplete="tel-national" aria-label="رقم الهاتف"></label>
+        <div class="lg-err" id="lgErr" role="alert" hidden=""></div>
+        <button class="lg-btn" id="lgGo" type="submit"><span>تسجيل الدخول</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg><i class="lg-ld"></i></button>
       </form>
       <p class="lg-note">أول مرة؟ يُنشأ حسابك تلقائياً عند الدخول، ويمكنك لاحقاً إضافة أكثر من متجر على نفس الرقم.</p>
-      <div class="lg-links"><button type="button" id="lgAdmin">دخول المشرف</button><button type="button" data-close>تصفّح كزائر</button></div>
-      <div class="lg-ok" id="lgOk" aria-live="polite"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring" cx="32" cy="32" r="28"/><path class="tick" d="M19 33l9 9 17-19"/></svg><b id="lgOkT"></b></div>
+      <div class="lg-links"><button type="button" id="lgAdmin">دخول المشرف</button><button type="button" data-close="">تصفّح كزائر</button></div>
+      <div class="lg-ok" id="lgOk" aria-live="polite"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring" cx="32" cy="32" r="28"></circle><path class="tick" d="M19 33l9 9 17-19"></path></svg><b id="lgOkT"></b></div>
     </div></div></div>
 </div>
-<div class="modal" id="mAcct" hidden role="dialog" aria-modal="true" aria-labelledby="acT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mAcct" hidden="" role="dialog" aria-modal="true" aria-labelledby="acT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="acT">حسابي</h2><p class="sub" id="acSub"></p><div id="acList"></div>
-      <div class="foot-actions" style="margin-top:12px"><button class="btn primary" type="button" id="acAdd">إضافة متجر جديد</button><button class="btn" type="button" id="acMer" hidden>سجل التجار</button><button class="btn danger" type="button" id="acOut">تسجيل الخروج</button></div></div></div>
+      <div class="foot-actions" style="margin-top:12px"><button class="btn primary" type="button" id="acAdd">إضافة متجر جديد</button><button class="btn" type="button" id="acMer" hidden="">سجل التجار</button><button class="btn danger" type="button" id="acOut">تسجيل الخروج</button></div></div></div>
 </div>
-<div class="modal" id="mMerch" hidden role="dialog" aria-modal="true" aria-labelledby="mrT">
-  <div class="sheet"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mMerch" hidden="" role="dialog" aria-modal="true" aria-labelledby="mrT">
+  <div class="sheet"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="mrT">سجل التجار</h2><p class="sub" id="mrSub"></p>
       <input class="inp" id="mrQ" placeholder="ابحث بالاسم أو الرقم" aria-label="بحث" style="margin-bottom:10px"><div id="mrList"></div>
-      <div class="foot-actions" style="margin-top:12px"><button class="btn" type="button" id="mrCsv">تصدير Excel (CSV)</button><button class="btn primary" type="button" data-close>إغلاق</button></div></div></div>
+      <div class="foot-actions" style="margin-top:12px"><button class="btn" type="button" id="mrCsv">تصدير Excel (CSV)</button><button class="btn primary" type="button" data-close="">إغلاق</button></div></div></div>
 </div>
-<div class="modal" id="mMerEd" hidden role="dialog" aria-modal="true" aria-labelledby="meT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mMerEd" hidden="" role="dialog" aria-modal="true" aria-labelledby="meT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="meT"></h2><p class="sub" id="meSub"></p>
       <div id="meEdit"><label class="lbl" for="meP" style="display:block;margin-bottom:4px">رقم الهاتف (8 أرقام)</label><input class="inp" id="meP" inputmode="numeric" dir="ltr" autocomplete="off" style="margin-bottom:10px">
         <label class="lbl" for="meS" style="display:block;margin-bottom:4px">المتاجر (متجر في كل سطر)</label><textarea class="inp" id="meS" rows="4"></textarea><small class="nosoc" id="meNote"></small></div>
-      <div id="meDel" hidden><label style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="meDW"> <span>احذف مشاريعه أيضاً (تُنقل إلى سلة Drive)</span></label><small class="nosoc" id="meDN"></small></div>
-      <p class="nosoc" id="meErr" hidden style="color:var(--bad)"></p>
-      <div class="foot-actions"><button class="btn" type="button" data-close>إلغاء</button><button class="btn primary" type="button" id="meOk">حفظ</button></div></div></div>
+      <div id="meDel" hidden=""><label style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="meDW"> <span>احذف مشاريعه أيضاً (تُنقل إلى سلة Drive)</span></label><small class="nosoc" id="meDN"></small></div>
+      <p class="nosoc" id="meErr" hidden="" style="color:var(--bad)"></p>
+      <div class="foot-actions"><button class="btn" type="button" data-close="">إلغاء</button><button class="btn primary" type="button" id="meOk">حفظ</button></div></div></div>
 </div>
-<div class="hv-cur" id="hvCur" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#14210f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"/><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></div>
-<div class="modal" id="mShow" hidden role="dialog" aria-modal="true" aria-labelledby="shT">
-  <div class="sheet"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="hv-cur" id="hvCur" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#14210f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 14a8 8 0 0 1-8 8"></path><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"></path><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"></path><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg></div>
+<div class="modal" id="mShow" hidden="" role="dialog" aria-modal="true" aria-labelledby="shT">
+  <div class="sheet"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="shT">تخصيص عرض الـ header</h2><p class="sub">اختر النموذج ومصدر الصور. يُحفظ للجميع في Drive.</p>
       <div class="field"><label>نموذج العرض</label><div class="shrow" id="shStyle"></div></div>
       <div class="field"><label>مصدر صور المشاريع</label><div class="shrow" id="shMode"><button type="button" class="chip" data-m="auto">أحدث المشاريع تلقائياً</button><button type="button" class="chip" data-m="pick">مشاريع أختارها</button></div>
         <label class="shck"><input type="checkbox" id="shOnly"> عرض صوري المرفوعة فقط (إخفاء صور المشاريع)</label></div>
-      <div class="field" id="shPickW" hidden><label>اختر المشاريع</label><div id="shPick" class="shpick"></div></div>
-      <div class="field"><label>صوري الخاصة (حتى 6 صور)</label><div class="shup" id="shUp"></div><input type="file" id="shFile" accept="image/*" multiple hidden></div>
+      <div class="field" id="shPickW" hidden=""><label>اختر المشاريع</label><div id="shPick" class="shpick"></div></div>
+      <div class="field"><label>صوري الخاصة (حتى 6 صور)</label><div class="shup" id="shUp"></div><input type="file" id="shFile" accept="image/*" multiple="" hidden=""></div>
       <div class="foot-actions" style="margin-top:12px"><button class="btn" type="button" id="shReset">افتراضي</button><button class="btn primary" type="button" id="shSave">حفظ</button></div></div></div>
 </div>
-<div class="modal" id="mName" hidden role="dialog" aria-modal="true" aria-labelledby="nmT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mName" hidden="" role="dialog" aria-modal="true" aria-labelledby="nmT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <form class="sheet-in" id="nameForm"><h2 id="nmT">ما اسمك؟</h2><p class="sub">يظهر اسمك مع إعجابك ورسائلك، ويُحفظ في متصفحك لتكتبه مرة واحدة فقط.</p>
-      <div class="field"><input class="inp" id="nmIn" maxlength="40" placeholder="الاسم" autocomplete="name" aria-label="الاسم"><div class="err" id="nmErr" hidden>اكتب اسمك (حرفان على الأقل).</div></div>
+      <div class="field"><input class="inp" id="nmIn" maxlength="40" placeholder="الاسم" autocomplete="name" aria-label="الاسم"><div class="err" id="nmErr" hidden="">اكتب اسمك (حرفان على الأقل).</div></div>
       <div class="foot-actions"><button class="btn primary" type="submit">متابعة</button></div></form></div>
 </div>
 <!-- الرسائل -->
-<div class="modal" id="mInbox" hidden role="dialog" aria-modal="true" aria-labelledby="inTitle">
-  <div class="sheet"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mInbox" hidden="" role="dialog" aria-modal="true" aria-labelledby="inTitle">
+  <div class="sheet"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="inTitle">رسائلي</h2><div id="inBody"></div>
-      <div class="foot-actions" style="margin-top:12px"><button class="btn sm" type="button" id="inAdmin">دخول صاحب المشروع (المشرف)</button><button class="btn primary" type="button" data-close>إغلاق</button></div></div></div>
+      <div class="foot-actions" style="margin-top:12px"><button class="btn sm" type="button" id="inAdmin">دخول صاحب المشروع (المشرف)</button><button class="btn primary" type="button" data-close="">إغلاق</button></div></div></div>
 </div>
 
 <!-- تفاصيل مشروع -->
-<div class="modal" id="mDetail" hidden role="dialog" aria-modal="true" aria-labelledby="dName">
-  <div class="sheet"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button><div id="dBody"></div></div>
+<div class="modal" id="mDetail" hidden="" role="dialog" aria-modal="true" aria-labelledby="dName">
+  <div class="sheet"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button><div id="dBody"></div></div>
 </div>
 
 <!-- نموذج مشروع -->
-<div class="modal" id="mForm" hidden role="dialog" aria-modal="true" aria-labelledby="fTitle">
-  <div class="sheet glass"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mForm" hidden="" role="dialog" aria-modal="true" aria-labelledby="fTitle">
+  <div class="sheet glass"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="fTitle">إضافة مشروع</h2>
       <p class="sub">يُنشأ للمشروع مجلد باسمه في Drive وتُحفظ فيه الصور بجودة عالية وحجم مناسب للعرض.</p>
       <div class="rodate" id="fDate"></div>
-      <form class="form" id="form" novalidate>
+      <form class="form" id="form" novalidate="">
         <div class="row2">
           <div class="field"><span class="lb">الشعار</span><button type="button" class="drop logo-drop" id="logoDrop" aria-label="إضافة شعار المشروع"></button></div>
-          <div class="field"><label for="fName">اسم المتجر</label><input type="text" id="fName" maxlength="60" placeholder="مثال: بيت الحلا العماني" autocomplete="off"><div class="err" id="eName" hidden></div>
-            <label for="fCat" style="margin-top:6px;font-weight:600;font-size:14px">القسم</label><input type="text" id="fCat" maxlength="30" placeholder="اختر قسماً من الأسفل أو اكتب قسماً جديداً" autocomplete="off"><div class="err" id="eCat" hidden></div></div>
+          <div class="field"><label for="fName">اسم المتجر</label><input type="text" id="fName" maxlength="60" placeholder="مثال: بيت الحلا العماني" autocomplete="off"><div class="err" id="eName" hidden=""></div>
+            <label for="fCat" style="margin-top:6px;font-weight:600;font-size:14px">القسم</label><input type="text" id="fCat" maxlength="30" placeholder="اختر قسماً من الأسفل أو اكتب قسماً جديداً" autocomplete="off"><div class="err" id="eCat" hidden=""></div></div>
         </div>
         <div class="field"><div class="suggest" id="suggest"></div></div>
         <div class="g3">
-          <div class="field"><label for="fGov">المحافظة (موقعه على الخريطة)</label><select class="inp" id="fGov"></select><div class="err" id="eGov" hidden></div></div>
+          <div class="field"><label for="fGov">المحافظة (موقعه على الخريطة)</label><select class="inp" id="fGov"></select><div class="err" id="eGov" hidden=""></div></div>
           <div class="field"><label for="fMap">موقع المشروع على الخريطة</label>
             <div class="locopts" role="group" aria-label="طريقة تحديد الموقع">
               <button type="button" class="lo" id="loPaste">🎯 موقعي الحالي</button>
@@ -1171,86 +1170,86 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
               <button type="button" class="lo" id="loPick">📍 تحديد هنا على الخريطة</button>
             </div>
             <input type="text" id="fMap" dir="ltr" placeholder="الصق رابط خرائط جوجل أو اكتب 23.58890, 58.40840" autocomplete="off">
-            <div class="lohelp" id="loHelp" hidden><b>خطوات سريعة:</b> ١) حدّد مكان المشروع في خرائط جوجل (فتحتُها لك في تبويب جديد). ٢) اضغط «مشاركة» ثم «نسخ الرابط». ٣) ارجع هنا وسيُلصق الرابط تلقائياً، أو الصقه في الخانة بـ Ctrl+V.</div>
-            <div id="pickBox" hidden><div class="locopts" id="pickBase" role="group" aria-label="نوع الخريطة"><button type="button" class="lo on" data-pb="road">🗺️ شوارع</button><button type="button" class="lo" data-pb="sat">🛰️ أقمار صناعية</button><button type="button" class="lo" data-pb="hyb">🛰️ + شوارع وأسماء</button></div><div id="pickMap"></div><div class="pmeta" style="margin-top:4px">اضغط على الخريطة (أو اسحب الدبوس) لتحديد الموقع بدقة. قرّب حتى ترى الشارع.</div></div>
-            <div class="err" id="eMap" hidden></div><div class="mapprev" id="mapPrev" hidden></div></div>
+            <div class="lohelp" id="loHelp" hidden=""><b>خطوات سريعة:</b> ١) حدّد مكان المشروع في خرائط جوجل (فتحتُها لك في تبويب جديد). ٢) اضغط «مشاركة» ثم «نسخ الرابط». ٣) ارجع هنا وسيُلصق الرابط تلقائياً، أو الصقه في الخانة بـ Ctrl+V.</div>
+            <div id="pickBox" hidden=""><div class="locopts" id="pickBase" role="group" aria-label="نوع الخريطة"><button type="button" class="lo on" data-pb="road">🗺️ شوارع</button><button type="button" class="lo" data-pb="sat">🛰️ أقمار صناعية</button><button type="button" class="lo" data-pb="hyb">🛰️ + شوارع وأسماء</button></div><div id="pickMap"></div><div class="pmeta" style="margin-top:4px">اضغط على الخريطة (أو اسحب الدبوس) لتحديد الموقع بدقة. قرّب حتى ترى الشارع.</div></div>
+            <div class="err" id="eMap" hidden=""></div><div class="mapprev" id="mapPrev" hidden=""></div></div>
         </div>
         <div class="g3" id="wilRow">
-          <div class="field"><label for="fWil">الولاية</label><select class="inp" id="fWil"></select><input class="inp" id="fWilNew" maxlength="40" placeholder="اسم الولاية الجديدة" hidden style="margin-top:6px"><div class="err" id="eWil" hidden></div></div>
-          <div class="field"><label for="fArea">المنطقة داخل الولاية</label><select class="inp" id="fArea"></select><input class="inp" id="fAreaNew" maxlength="60" placeholder="اسم المنطقة الجديدة" hidden style="margin-top:6px"><div class="err" id="eArea" hidden></div></div>
+          <div class="field"><label for="fWil">الولاية</label><select class="inp" id="fWil"></select><input class="inp" id="fWilNew" maxlength="40" placeholder="اسم الولاية الجديدة" hidden="" style="margin-top:6px"><div class="err" id="eWil" hidden=""></div></div>
+          <div class="field"><label for="fArea">المنطقة داخل الولاية</label><select class="inp" id="fArea"></select><input class="inp" id="fAreaNew" maxlength="60" placeholder="اسم المنطقة الجديدة" hidden="" style="margin-top:6px"><div class="err" id="eArea" hidden=""></div></div>
         </div>
-        <div class="field"><span class="lb">حسابات التواصل الاجتماعي</span><div class="form" id="socials" style="gap:10px"></div><div class="err" id="eSoc" hidden></div><span class="hint">اضغط على الأيقونة لرفع أيقونة PNG أو SVG خاصة بالحساب.</span></div>
-        <div class="field"><label for="fLink">اضف رابط اختياري</label><input type="text" id="fLink" dir="ltr" maxlength="300" placeholder="https://example.com (موقع، متجر إلكتروني، أو أي رابط)" autocomplete="off"><div class="err" id="eLink" hidden></div></div>
+        <div class="field"><span class="lb">حسابات التواصل الاجتماعي</span><div class="form" id="socials" style="gap:10px"></div><div class="err" id="eSoc" hidden=""></div><span class="hint">اضغط على الأيقونة لرفع أيقونة PNG أو SVG خاصة بالحساب.</span></div>
+        <div class="field"><label for="fLink">اضف رابط اختياري</label><input type="text" id="fLink" dir="ltr" maxlength="300" placeholder="https://example.com (موقع، متجر إلكتروني، أو أي رابط)" autocomplete="off"><div class="err" id="eLink" hidden=""></div></div>
         <div class="field"><label for="fDesc">نبذة عن المتجر</label><textarea id="fDesc" maxlength="240" placeholder="ماذا تقدّم؟ ما الذي يميّز مشروعك؟"></textarea>
-          <div style="display:flex;gap:8px"><div class="err" id="eDesc" hidden></div><div class="count" id="dCount" style="margin-inline-start:auto">0 / 240</div></div></div>
+          <div style="display:flex;gap:8px"><div class="err" id="eDesc" hidden=""></div><div class="count" id="dCount" style="margin-inline-start:auto">0 / 240</div></div></div>
         <div class="field"><span class="lb">صورة المشروع</span><button type="button" class="drop cover-drop" id="coverDrop" aria-label="إضافة صورة المشروع"></button><span class="hint">صورة واحدة، تُقصّ بنسبة 16:10 وتُحفظ بجودة عالية.</span></div>
-        <input type="file" id="fileLogo" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
-        <input type="file" id="fileCover" accept="image/png,image/jpeg,image/webp,image/gif" hidden>
-        <input type="file" id="fileSocIcon" accept="image/png,image/svg+xml,image/webp,image/jpeg" hidden>
-        <div class="foot-actions"><span class="status" id="status" aria-live="polite"></span><button class="btn" type="button" data-close>إلغاء</button><button class="btn primary" type="submit" id="submitBtn">حفظ البيانات والإغلاق</button></div>
+        <input type="file" id="fileLogo" accept="image/png,image/jpeg,image/webp,image/gif" hidden="">
+        <input type="file" id="fileCover" accept="image/png,image/jpeg,image/webp,image/gif" hidden="">
+        <input type="file" id="fileSocIcon" accept="image/png,image/svg+xml,image/webp,image/jpeg" hidden="">
+        <div class="foot-actions"><span class="status" id="status" aria-live="polite"></span><button class="btn" type="button" data-close="">إلغاء</button><button class="btn primary" type="submit" id="submitBtn">حفظ البيانات والإغلاق</button></div>
       </form></div></div>
 </div>
 
 <!-- كلمة السر -->
-<div class="modal" id="mPass" hidden role="dialog" aria-modal="true" aria-labelledby="passT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mPass" hidden="" role="dialog" aria-modal="true" aria-labelledby="passT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="passT">الرجاء كتابة الرقم السري للتعديل أو الحذف</h2>
       <form class="form" id="passForm"><p class="sub" style="margin:0" id="passPurpose"></p>
         <div class="pw"><input type="password" id="passInput" autocomplete="off" aria-label="الرقم السري" dir="ltr" style="text-align:right"><button type="button" id="passEye" aria-label="إظهار الرقم السري"><i data-lucide="eye"></i></button></div>
-        <div class="err" id="passErr" hidden role="alert"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg>الرقم السري غير صحيح، حاول مرة أخرى</div>
+        <div class="err" id="passErr" hidden="" role="alert"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m15 9-6 6M9 9l6 6"></path></svg>الرقم السري غير صحيح، حاول مرة أخرى</div>
         <div class="foot-actions"><button class="btn primary" type="submit">تأكيد</button></div></form></div></div>
 </div>
 
-<div class="modal" id="mPick" hidden role="dialog" aria-modal="true" aria-labelledby="pickT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-    <div class="sheet-in"><h2 id="pickT">اختر المشروع</h2><label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">بحث</span><input id="pickQ" type="text" placeholder="ابحث باسم المشروع" autocomplete="off"></label><div class="pick-list" id="pickList"></div></div></div>
+<div class="modal" id="mPick" hidden="" role="dialog" aria-modal="true" aria-labelledby="pickT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+    <div class="sheet-in"><h2 id="pickT">اختر المشروع</h2><label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="sr">بحث</span><input id="pickQ" type="text" placeholder="ابحث باسم المشروع" autocomplete="off"></label><div class="pick-list" id="pickList"></div></div></div>
 </div>
 
-<div class="modal" id="mConfirm" hidden role="dialog" aria-modal="true" aria-labelledby="cfT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-    <div class="sheet-in"><h2 id="cfT"></h2><p class="sub" id="cfP"></p><div class="foot-actions"><button class="btn" type="button" data-close>إلغاء</button><button class="btn danger solid" type="button" id="cfOk">حذف</button></div></div></div>
+<div class="modal" id="mConfirm" hidden="" role="dialog" aria-modal="true" aria-labelledby="cfT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+    <div class="sheet-in"><h2 id="cfT"></h2><p class="sub" id="cfP"></p><div class="foot-actions"><button class="btn" type="button" data-close="">إلغاء</button><button class="btn danger solid" type="button" id="cfOk">حذف</button></div></div></div>
 </div>
 
-<div class="modal" id="mLink" hidden role="dialog" aria-modal="true" aria-labelledby="lT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mLink" hidden="" role="dialog" aria-modal="true" aria-labelledby="lT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="lT">ربط الدليل بمجلد Drive</h2><p class="sub">ألصق رابط النشر (ينتهي بـ /exec) الناتج عن نشر ملف Code.gs.</p>
-      <form class="form" id="linkForm"><div class="field"><label for="urlIn">رابط Apps Script</label><input type="text" id="urlIn" dir="ltr" placeholder="https://script.google.com/macros/s/…/exec" autocomplete="off"><div class="err" id="eUrl" hidden></div></div>
-        <div class="diag" id="linkDiag" hidden></div>
-        <div class="foot-actions"><button class="btn sm" type="button" id="linkTest">اختبار الاتصال</button><button class="btn" type="button" data-close>إلغاء</button><button class="btn primary" type="submit">حفظ الرابط</button></div></form></div></div>
+      <form class="form" id="linkForm"><div class="field"><label for="urlIn">رابط Apps Script</label><input type="text" id="urlIn" dir="ltr" placeholder="https://script.google.com/macros/s/…/exec" autocomplete="off"><div class="err" id="eUrl" hidden=""></div></div>
+        <div class="diag" id="linkDiag" hidden=""></div>
+        <div class="foot-actions"><button class="btn sm" type="button" id="linkTest">اختبار الاتصال</button><button class="btn" type="button" data-close="">إلغاء</button><button class="btn primary" type="submit">حفظ الرابط</button></div></form></div></div>
 </div>
 
-<div class="modal" id="mKpi" hidden role="dialog" aria-modal="true" aria-labelledby="kT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mKpi" hidden="" role="dialog" aria-modal="true" aria-labelledby="kT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="kT">إضافة مؤشر جديد</h2>
       <form class="form" id="kpiForm"><label class="field"><span class="lb">اسم المؤشر</span><input type="text" id="kLabel" maxlength="40" placeholder="مثال: مشاريع الحلويات"></label>
         <div class="g3"><label class="field"><span class="lb">مصدر القيمة</span><select class="inp" id="kMetric"></select></label>
-          <label class="field" id="kValW" hidden><span class="lb">القيمة</span><input type="number" id="kVal" value="0"></label>
+          <label class="field" id="kValW" hidden=""><span class="lb">القيمة</span><input type="number" id="kVal" value="0"></label>
           <div class="field"><span class="lb">الأيقونة</span><button type="button" class="btn" id="kIconBtn"><span id="kIconPrev"></span>اختيار أيقونة</button></div></div>
         <div class="foot-actions"><button class="btn primary" type="submit">إضافة المؤشر</button></div></form></div></div>
 </div>
 
-<div class="modal" id="mSec" hidden role="dialog" aria-modal="true" aria-labelledby="secT">
-  <div class="sheet sm glass"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mSec" hidden="" role="dialog" aria-modal="true" aria-labelledby="secT">
+  <div class="sheet sm glass"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="secT">تعديل أيقونة القسم</h2>
-      <div class="field" id="secNewField" hidden style="margin-bottom:12px"><label for="secNewName">اسم القسم الجديد</label><input type="text" id="secNewName" maxlength="30" placeholder="مثال: مأكولات بحرية" autocomplete="off"></div>
+      <div class="field" id="secNewField" hidden="" style="margin-bottom:12px"><label for="secNewName">اسم القسم الجديد</label><input type="text" id="secNewName" maxlength="30" placeholder="مثال: مأكولات بحرية" autocomplete="off"></div>
       <div class="secprev"><div class="sico" id="secPrev"></div><b id="secPrevName"></b></div>
       <div class="field"><span class="lb">اللون</span><div class="swrow"><span id="secColors" class="swrow"></span><input type="color" id="secColorIn" aria-label="لون مخصص"></div></div>
       <div class="field" style="margin-top:12px"><span class="lb">الأيقونة</span>
-        <label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">بحث</span><input id="secIcQ" type="text" placeholder="ابحث بالإنجليزية: cake, shop…" dir="ltr" autocomplete="off"></label>
+        <label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="sr">بحث</span><input id="secIcQ" type="text" placeholder="ابحث بالإنجليزية: cake, shop…" dir="ltr" autocomplete="off"></label>
         <div class="icon-grid" id="secIcGrid"></div></div>
-      <input type="file" id="secFile" accept="image/png,image/svg+xml,image/webp,image/jpeg" hidden>
+      <input type="file" id="secFile" accept="image/png,image/svg+xml,image/webp,image/jpeg" hidden="">
       <div class="foot-actions"><button class="btn sm" id="secUp" type="button">رفع أيقونة PNG / SVG</button><button class="btn sm" id="secReset" type="button">الأصل</button><button class="btn primary" id="secSave" type="button">حفظ</button></div>
     </div></div>
 </div>
 
-<div class="modal" id="mIcons" hidden role="dialog" aria-modal="true" aria-labelledby="icT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
-    <div class="sheet-in"><h2 id="icT">اختر أيقونة</h2><label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">بحث</span><input id="icQ" type="text" placeholder="ابحث بالإنجليزية: shop, cake…" dir="ltr" autocomplete="off"></label>
-      <div class="icon-grid" id="icGrid"></div><div class="foot-actions"><button class="btn" id="icUpload" type="button">رفع أيقونة من جهازي</button><input type="file" id="icFile" accept="image/png,image/jpeg,image/webp,image/svg+xml" hidden></div></div></div>
+<div class="modal" id="mIcons" hidden="" role="dialog" aria-modal="true" aria-labelledby="icT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+    <div class="sheet-in"><h2 id="icT">اختر أيقونة</h2><label class="search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="sr">بحث</span><input id="icQ" type="text" placeholder="ابحث بالإنجليزية: shop, cake…" dir="ltr" autocomplete="off"></label>
+      <div class="icon-grid" id="icGrid"></div><div class="foot-actions"><button class="btn" id="icUpload" type="button">رفع أيقونة من جهازي</button><input type="file" id="icFile" accept="image/png,image/jpeg,image/webp,image/svg+xml" hidden=""></div></div></div>
 </div>
 
-<div class="modal" id="mHelp" hidden role="dialog" aria-modal="true" aria-labelledby="hT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mHelp" hidden="" role="dialog" aria-modal="true" aria-labelledby="hT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="hT">كيف أستخدم الدليل؟</h2><ol class="help-list">
       <li>تصفّح الأقسام، وكل قسم يضم بطاقات مشاريعه. اضغط أي بطاقة لعرض بياناتها كاملة.</li>
       <li>ابحث من مربع البحث وفلاتر القسم والمحافظة.</li>
@@ -1260,24 +1259,24 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
 </div>
 
 
-<div class="modal" id="mTheme" hidden role="dialog" aria-modal="true" aria-labelledby="thT">
-  <div class="sheet"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mTheme" hidden="" role="dialog" aria-modal="true" aria-labelledby="thT">
+  <div class="sheet"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="thT">المظهر والخلفية</h2><p class="sub">اختر ثيماً يناسب نوع المشاريع، وعدّل ألوانه الثلاثة، ثم اختر خلفية متحركة.</p>
       <h3 class="mh">الثيم</h3><div class="thgrid" id="thGrid"></div>
       <h3 class="mh">ألوان الثيم (قابلة للتعديل)</h3><div class="tcols" id="tCols"></div>
       <h3 class="mh">الخلفية المتحركة</h3><div class="bggrid" id="bgGrid"></div>
       <h3 class="mh">الخط</h3><div class="bggrid" id="fontGrid"></div>
-      <div class="foot-actions" style="margin-top:18px"><button class="btn sm" type="button" id="thReset">إعادة ألوان هذا الثيم</button><button class="btn sm" type="button" id="thPush"><i data-lucide="cloud-upload"></i>حفظ للجميع (Drive)</button><button class="btn primary" type="button" data-close>تم</button></div></div></div>
+      <div class="foot-actions" style="margin-top:18px"><button class="btn sm" type="button" id="thReset">إعادة ألوان هذا الثيم</button><button class="btn sm" type="button" id="thPush"><i data-lucide="cloud-upload"></i>حفظ للجميع (Drive)</button><button class="btn primary" type="button" data-close="">تم</button></div></div></div>
 </div>
-<div class="modal" id="mTicker" hidden role="dialog" aria-modal="true" aria-labelledby="tkT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mTicker" hidden="" role="dialog" aria-modal="true" aria-labelledby="tkT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="tkT">الشريط المتحرك</h2><p class="sub">أي نص تكتبه يتحرك في أعلى الصفحة من اليسار إلى اليمين.</p>
       <div id="tkRows"></div>
       <form class="tkadd" id="tkForm"><input type="text" id="tkIn" maxlength="140" placeholder="اكتب نصاً جديداً…" aria-label="نص جديد"><button class="btn primary" type="submit">إضافة</button></form>
-      <div class="foot-actions" style="margin-top:14px"><button class="btn sm" type="button" id="tkDef">استعادة الافتراضي</button><button class="btn sm" type="button" id="tkPush"><i data-lucide="cloud-upload"></i>حفظ للجميع (Drive)</button><button class="btn primary" type="button" data-close>تم</button></div></div></div>
+      <div class="foot-actions" style="margin-top:14px"><button class="btn sm" type="button" id="tkDef">استعادة الافتراضي</button><button class="btn sm" type="button" id="tkPush"><i data-lucide="cloud-upload"></i>حفظ للجميع (Drive)</button><button class="btn primary" type="button" data-close="">تم</button></div></div></div>
 </div>
-<div class="modal" id="mBackup" hidden role="dialog" aria-modal="true" aria-labelledby="bkT">
-  <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+<div class="modal" id="mBackup" hidden="" role="dialog" aria-modal="true" aria-labelledby="bkT">
+  <div class="sheet sm"><button class="x" data-close="" type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     <div class="sheet-in"><h2 id="bkT">الحفظ والنسخ</h2><p class="sub">نسخة احتياطية من المشاريع والإعدادات في مجلد «المشاريع» في Drive، أو ملف Excel على جهازك. <a href="https://drive.google.com/drive/folders/1mA9Acmy9aHWYVM7-2evJYGdMZS1yff19?usp=sharing" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:600">فتح المجلد</a></p>
       <div id="bkMain">
         <div class="mh" style="margin-top:4px">تصدير كل المشاريع إلى جهازك</div>
@@ -1290,20 +1289,20 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
         <button class="bkb" type="button" id="bkDrive"><b>☁️ تصدير JSON إلى Drive</b><small>ملف جديد في كل مرة داخل مجلد «المشاريع» (يتطلب الرقم السري)</small></button>
         <button class="bkb" type="button" id="bkImp"><b>⬇️ استيراد</b><small>دمج نسخة سابقة من Drive أو من جهازك دون حذف شيء</small></button>
       </div>
-      <div id="bkImpBox" hidden>
+      <div id="bkImpBox" hidden="">
         <button class="bkb" type="button" id="bkFromDrive"><b>☁️ من Google Drive</b><small>يقرأ أحدث ملف backup_*.json</small></button>
         <button class="bkb" type="button" id="bkFromPc"><b>💻 من الكمبيوتر</b><small>اختر ملف JSON صدّرته سابقاً</small></button>
         <button class="btn" type="button" id="bkBack">رجوع</button>
       </div>
-      <input type="file" id="bkFile" accept=".json,application/json" hidden>
+      <input type="file" id="bkFile" accept=".json,application/json" hidden="">
       <div class="bkinfo" id="bkInfo" aria-live="polite"></div>
-      <button class="btn sm" type="button" id="bkUndo" hidden style="margin-top:10px">↩︎ تراجع عن آخر استيراد</button>
+      <button class="btn sm" type="button" id="bkUndo" hidden="" style="margin-top:10px">↩︎ تراجع عن آخر استيراد</button>
     </div></div>
 </div>
 
 <div class="toasts" id="toasts" aria-live="polite"></div>
 
-<script id="seed">window.__SEED__=/*S*/null/*E*/;</script>
+<script id="seed">window.__SEED__=/*S*/{"ts":1794846426039,"mode":"day","texts":{},"heroIcon":{"type":"lucide","value":"shopping-bag"},"chatIcon":{"type":"lucide","value":"bot"},"meta":{},"url":"https://script.google.com/macros/s/AKfycbzhzEta0GyC720mnTZJ7jii84YDgJ5FU-KzoGsbiQ7EfuJmCauBpAGoWuZKLqdKxlgTYQ/exec","cache":[],"kpis":[{"id":"k1","label":"إجمالي المشاريع","metric":"total","icon":{"type":"lucide","value":"store"}},{"id":"k2","label":"الأقسام","metric":"sections","icon":{"type":"lucide","value":"layers"}},{"id":"k3","label":"المحافظات","metric":"govs","icon":{"type":"lucide","value":"map-pin"}},{"id":"k4","label":"حسابات التواصل","metric":"accounts","icon":{"type":"lucide","value":"message-circle"}}],"theme":"royal","siteLocal":true,"mapBase":"sat"}/*E*/;</script>
 <script>
 (function(){
 'use strict';
@@ -2570,6 +2569,4 @@ async function load(){
 }
 applyTheme();applyTexts();renderTicker();setEditing(false);initMap();renderAll();window.__bgKick(true);load();applyAuth();sessCheck();
 })();
-</script>
-</body>
-</html>
+</script></body></html>
