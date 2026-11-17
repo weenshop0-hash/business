@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>دكان بيتنا</title>
 <link rel="icon" id="favIco" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23e4b84e'/%3E%3Cpath d='M18 26h28l-2 22H20z' fill='none' stroke='%2314110a' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M25 26v-4a7 7 0 0 1 14 0v4' fill='none' stroke='%2314110a' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="description" content="دكان بيتنا — دليل المشاريع المنزلية في سلطنة عُمان">
+<meta name="theme-color" content="#e4b84e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="دكان بيتنا">
+<meta property="og:title" content="دكان بيتنا">
+<meta property="og:description" content="دليل المشاريع المنزلية في سلطنة عُمان">
+<meta property="og:locale" content="ar_AR">
+<!-- صورة المعاينة: ارفع og-image.png و icon-512.png بجانب الصفحة ثم ضع الرابط الكامل هنا (يجب أن يبدأ بـ https://) -->
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@400;500;600;700;800&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
@@ -1009,15 +1021,6 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
 .arow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:10px;align-items:center;width:100%;text-align:start;padding:10px 12px;margin-bottom:6px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);cursor:pointer;transition:.2s}
 .arow:hover{border-color:var(--accent)}.arow b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.arow span{font-size:.85rem;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.arow small{font-size:.75rem;color:var(--ink-2)}
 @media (max-width:560px){.arow{grid-template-columns:1fr auto}.arow span{display:none}.ast b{font-size:1.4rem}}
-
-/* تجميع الدبابيس */
-.lcluw{background:none;border:0}.lclu{display:grid;place-items:center;border-radius:50%;background:var(--accent);color:var(--on-accent);border:3px solid rgba(255,255,255,.85);box-shadow:0 4px 14px rgba(0,0,0,.45);font-weight:800;cursor:pointer;transition:transform .2s}.lclu:hover{transform:scale(1.12)}.lclu b{font-size:.85rem;line-height:1}
-.rmore{display:flex;justify-content:center;padding:22px 0 8px}
-/* زر الفيديو التوضيحي */
-.hv-cta-w{flex-wrap:wrap;gap:14px;align-items:center}
-.hv-vid{display:inline-flex;align-items:center;gap:9px;height:52px;padding:0 24px;border-radius:99px;border:1.5px solid var(--accent);color:var(--accent);background:rgba(255,255,255,.04);font-weight:800;font-size:1.02rem;text-decoration:none;transition:transform .25s,background .25s,color .25s}
-.hv-vid svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2}
-.hv-vid:hover,.hv-vid:focus-visible{background:var(--accent);color:var(--on-accent);transform:translateY(-3px)}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -1027,7 +1030,7 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
 <body>
 <canvas id="bgCanvas" aria-hidden="true"></canvas>
 <!-- شريط نصوص متحرك من اليسار إلى اليمين -->
-<div class="ticker" id="ticker" role="region" aria-label="شريط الإعلانات"><div class="tk-track" id="tkTrack"></div><button class="tk-ed" type="button" data-act="tickerEdit" aria-label="تعديل نصوص الشريط" hidden><i data-lucide="pencil"></i></button></div>
+<div class="ticker" id="ticker" role="region" aria-label="شريط الإعلانات"><div class="tk-track" id="tkTrack"></div><button class="tk-ed" type="button" data-act="tickerEdit" aria-label="تعديل نصوص الشريط"><i data-lucide="pencil"></i></button></div>
 
 <!-- ============ الترويسة ============ -->
 <header class="hero" id="top">
@@ -1056,7 +1059,7 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
       <div class="hv-stage" id="hvStage" role="region" aria-label="عرض مشاريع المنصة"><div class="hv-track" id="hvTrack"></div></div>
       <div class="hv-ctl" id="hvCtl" role="group" aria-label="نموذج العرض"></div>
     </div>
-    <div class="hv-cta-w"><span class="hv-note n2" aria-hidden="true">التسجيل مجاني<svg viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 8c30-8 56 0 62 22"/><path d="M54 24l12 8 4-14"/></svg></span><a class="hv-vid" href="https://drive.google.com/file/d/1OPhTsHJ9skfB6w69T4RU4b9qu_YnR-tn/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" aria-label="فيديو توضيحي: طريقة التسجيل وإضافة مشروع"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor"/></svg><span>فيديو توضيحي</span></a><button class="hv-cta" type="button" data-act="addProject"><span>أضف مشروعك الآن</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+    <div class="hv-cta-w"><span class="hv-note n2" aria-hidden="true">التسجيل مجاني<svg viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 8c30-8 56 0 62 22"/><path d="M54 24l12 8 4-14"/></svg></span><button class="hv-cta" type="button" data-act="addProject"><span>أضف مشروعك الآن</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
   </div>
 </header>
 
@@ -1192,7 +1195,7 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
     <div class="sheet-in"><h2 id="admT">لوحة المشرف</h2><p class="sub">إحصائيات الدليل وآخر المشاريع المضافة.</p>
       <div class="admstats"><div class="ast"><b id="aPrj">0</b><span>عدد المشاريع</span></div><div class="ast"><b id="aUsr">…</b><span>عدد المستخدمين (التجار)</span></div><div class="ast"><b id="aSec">0</b><span>عدد الأقسام</span></div></div>
       <h3 class="mh" style="margin:14px 0 8px">آخر المشاريع المضافة</h3><div id="aLast"></div>
-      <div class="foot-actions" style="margin-top:12px"><button class="btn" type="button" id="aMer">سجل التجار</button><button class="btn primary" type="button" data-close>إغلاق</button></div></div></div>
+      <div class="foot-actions" style="margin-top:12px"><button class="btn" type="button" id="aMer">سجل التجار</button><button class="btn" type="button" id="aOg">تنزيل صورة معاينة الرابط</button><button class="btn primary" type="button" data-close>إغلاق</button></div></div></div>
 </div>
 <div class="hv-cur" id="hvCur" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" stroke="#14210f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"/><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></div>
 <div class="modal" id="mShow" hidden role="dialog" aria-modal="true" aria-labelledby="shT">
@@ -1380,7 +1383,7 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
 'use strict';
 const ORIGINAL_HTML='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
 /* رابط نشر Apps Script (ينتهي بـ /exec). يمكن لصقه هنا أو من زر «ربط Drive» */
-var DRV_DEFAULT_URL='https://script.google.com/macros/s/AKfycbwG9Fngbz5FfvMLEFZfde154N3RCc0dI1CRFh1qowCJmwvxtjut6wC5a1BQ5XAKI68FiA/exec';
+var DRV_DEFAULT_URL='https://script.google.com/macros/s/AKfycbwwdwWzyqYfl8RqfKmjU9dgM96A554BBKxlXfUxqJF2R2db_9URDngRttHxgeB12Jzkxg/exec';
 const DRV_RE=/^https:\/\/script\.google\.com\/(macros\/s\/|a\/)[^\s]+\/exec$/;
 const PW_HASH=2843506905970470;
 
@@ -1460,12 +1463,12 @@ const WIL={'مسقط':['مسقط','مطرح','بوشر','السيب','العام
  'جنوب الشرقية':['صور','الكامل والوافي','جعلان بني بو حسن','جعلان بني بو علي','مصيرة'],
  'الظاهرة':['عبري','ينقل','ضنك'],
  'الوسطى':['هيماء','الدقم','محوت','الجازر']};
-const GOVC=new Map();const govBy=n=>{if(GOVC.has(n))return GOVC.get(n);const r=GOV.find(g=>norm(g.n)===norm(n));GOVC.set(n,r);return r};
+const govBy=n=>GOV.find(g=>norm(g.n)===norm(n));
 const inOman=(a,o)=>a>=16&&a<=27.2&&o>=51.5&&o<=60.6;   // حدود عُمان التقريبية (WGS84)
 /* حساب التواصل: {n:اسم الحساب, u:الرابط, i:أيقونة مخصصة} */
 const PRIV=new Set(),BLOBS={};
 const locFull=p=>[p.location,p.wilaya,p.area].filter(Boolean).join(' · ');
-const normProj=p=>{(p.priv||[]).forEach(i=>PRIV.add(i));const lt=!p.social&&!p.sample;if(lt){p._l=1;p.photos=p.photos||[]}const s={};SOCIALS.forEach(x=>{let v=p.social&&p.social[x.k];if(lt&&(p.sk||[]).indexOf(x.k)>=0){s[x.k]={n:'',u:'',i:''};return}if(!v)return;if(typeof v==='string')v={n:'',u:v};if(v.n||v.u)s[x.k]={n:v.n||'',u:v.u||'',i:v.i||''}});p.social=s;p.location=p.location||'';p.wilaya=p.wilaya||'';p.area=p.area||'';p.lat=(p.lat==null||p.lat==='')?null:+p.lat;p.lng=(p.lng==null||p.lng==='')?null:+p.lng;p.mapUrl=p.mapUrl||'';p.link=typeof p.link==='string'?p.link:'';return p};
+const normProj=p=>{(p.priv||[]).forEach(i=>PRIV.add(i));const s={};SOCIALS.forEach(x=>{let v=p.social&&p.social[x.k];if(!v)return;if(typeof v==='string')v={n:'',u:v};if(v.n||v.u)s[x.k]={n:v.n||'',u:v.u||'',i:v.i||''}});p.social=s;p.location=p.location||'';p.wilaya=p.wilaya||'';p.area=p.area||'';p.lat=(p.lat==null||p.lat==='')?null:+p.lat;p.lng=(p.lng==null||p.lng==='')?null:+p.lng;p.mapUrl=p.mapUrl||'';p.link=typeof p.link==='string'?p.link:'';return p};
 const safeLink=u=>{const v=normLink(u);return v||''};
 const normLink=v=>{v=String(v||'').trim();if(!v)return '';if(!/^https?:\/\//i.test(v))v='https://'+v;try{const u=new URL(v);return(/^https?:$/.test(u.protocol)&&/\./.test(u.hostname)&&v.length<=300)?u.href:null}catch(e){return null}};
 const socUrl=(p,k)=>{const v=p.social&&p.social[k];return v?safeUrl(k,v.u):''};
@@ -1492,19 +1495,7 @@ async function api(body,timeout){
   const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),timeout||60000);
   try{const r=await fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body),redirect:'follow',signal:ctl.signal});const j=await r.json();if(!j.ok)throw new Error(j.error||'خطأ غير معروف');return j}finally{clearTimeout(t)}
 }
-async function getApi(q,ms){const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),ms||30000);try{const r=await fetch(URL_+'?'+new URLSearchParams(q).toString(),{redirect:'follow',signal:ctl.signal});const j=await r.json();if(!j.ok)throw new Error(j.error||'تعذّر الجلب');return j}finally{clearTimeout(t)}}
-let IDXV='';
-async function fetchList(v){const j=await getApi({action:'list',vid:ME.vid,v:v||''},60000);return {notModified:!!j.notModified,v:j.v||'',projects:j.projects?j.projects.map(normProj):null,meta:j.meta||{},likes:j.likes||{}}}
-/* تفاصيل مشروع كاملة (الفهرس يحمل بيانات خفيفة فقط) */
-const FULLQ=new Map();
-function loadFull(id){const p=PRJ.find(x=>x.id===id);if(!p||!p._l||p.sample||!DRV_RE.test(URL_))return Promise.resolve(p);
-  if(FULLQ.has(id))return FULLQ.get(id);
-  const q=getApi({action:'get',id,vid:ME.vid},40000).then(r=>{const np=normProj(r.project);const i=PRJ.findIndex(x=>x.id===id);if(i>=0)PRJ[i]=np;if(r.like)LIKES[id]=r.like;return np}).catch(()=>p).finally(()=>FULLQ.delete(id));
-  FULLQ.set(id,q);return q}
-async function ensureAllFull(){const todo=PRJ.filter(p=>p._l&&!p.sample).map(p=>p.id);if(!todo.length)return;
-  for(let i=0;i<todo.length;i+=20){toast('جارٍ تجهيز البيانات الكاملة… '+Math.min(todo.length,i+20)+' / '+todo.length);
-    const r=await getApi({action:'get_many',ids:todo.slice(i,i+20).join(',')},90000);
-    (r.projects||[]).forEach(f=>{const np=normProj(f),k=PRJ.findIndex(x=>x.id===np.id);if(k>=0)PRJ[k]=np})}}
+async function fetchList(){const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),30000);try{const r=await fetch(URL_+'?action=list&vid='+encodeURIComponent(ME.vid),{redirect:'follow',signal:ctl.signal});const j=await r.json();if(!j.ok)throw new Error(j.error||'تعذّر الجلب');return {projects:(j.projects||[]).map(normProj),meta:j.meta||{},likes:j.likes||{}}}finally{clearTimeout(t)}}
 const errText=e=>{const m=String(e&&e.message||e);if(m==='no_url')return 'لم يُربط الدليل بمجلد Drive بعد.';if(m==='duplicate_name')return 'يوجد مشروع بنفس الاسم، الرجاء تغيير الاسم.';if(e&&e.name==='AbortError')return 'انتهت مهلة الاتصال، حاول مرة أخرى.';if(/Failed to fetch|NetworkError/.test(m))return 'تعذّر الاتصال بـ Drive. تحقق من الإنترنت ومن رابط النشر (صلاحية Anyone).';return m};
 
 /* ====== الفلاتر ====== */
@@ -1514,14 +1505,13 @@ const catNames=()=>[...new Set([...DEFAULT_CATS,...customCats(),...all().map(p=>
 const deAl=w=>w.length>3&&w.startsWith('ال')?w.slice(2):w;
 function lev(a,b,lim){if(Math.abs(a.length-b.length)>lim)return lim+1;let prev=Array.from({length:b.length+1},(_,i)=>i);
   for(let i=1;i<=a.length;i++){const cur=[i];let mn=i;for(let j=1;j<=b.length;j++){const v=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));cur[j]=v;if(v<mn)mn=v}if(mn>lim)return lim+1;prev=cur}return prev[b.length]}
-const QC=new WeakMap();
-function qScore(p,toks,fz){
-  let F_=QC.get(p);if(!F_){F_=[[p.name,10],[p.category,6],[[p.location,p.wilaya,p.area].filter(Boolean).join(' '),5],[p.desc,3],[SOCIALS.map(s=>socText(p,s.k)).join(' '),2]].map(([t,w])=>{const n=norm(t);return {n,w,words:n.split(' ').map(deAl)}});QC.set(p,F_)}
+function qScore(p,toks){
+  const F_=[[p.name,10],[p.category,6],[[p.location,p.wilaya,p.area].filter(Boolean).join(' '),5],[p.desc,3],[SOCIALS.map(s=>socText(p,s.k)).join(' '),2]].map(([t,w])=>{const n=norm(t);return {n,w,words:n.split(' ').map(deAl)}});
   let total=0,hit=0;
   for(const t of toks){let best=0;
     for(const f of F_){if(!f.n)continue;let sc=0;
       if(f.n.includes(t))sc=f.w*(f.words.some(w=>w.startsWith(t))?1.3:1);
-      else if(fz&&t.length>=3){const lim=t.length>=6?2:t.length>=4?1:0;
+      else if(t.length>=3){const lim=t.length>=6?2:t.length>=4?1:0;
         for(const w of f.words){if(w.length<3)continue;
           if(w.startsWith(t)||(t.startsWith(w)&&w.length>=3))sc=Math.max(sc,f.w*.75);
           else if(lev(t,w,lim)<=lim)sc=Math.max(sc,f.w*.6);
@@ -1532,9 +1522,7 @@ function qScore(p,toks,fz){
 function getFiltered(o){o=o||{};const q=norm(F.q);
   /* عند البحث نبحث في كل المشاريع (بغض النظر عن القسم أو المحافظة المختارة) */
   if(q){const toks=q.split(' ').filter(Boolean).map(deAl);
-    /* مرحلتان: مطابقة مباشرة سريعة أولاً، والبحث التقريبي (أخطاء إملائية) فقط إن قلّت النتائج — حتى يبقى سريعاً مع آلاف المشاريع */
-    const run=fz=>all().map(p=>({p,r:qScore(p,toks,fz)})).filter(x=>x.r.hit>0).sort((a,b)=>b.r.hit-a.r.hit||b.r.total-a.r.total).map(x=>x.p);
-    const r1=run(false);return r1.length>=6?r1:run(true)}
+    return all().map(p=>({p,r:qScore(p,toks)})).filter(x=>x.r.hit>0).sort((a,b)=>b.r.hit-a.r.hit||b.r.total-a.r.total).map(x=>x.p)}
   return all().filter(p=>{
     if(!o.noType&&F.type&&(p.category||'غير مصنّف')!==F.type)return false;
     if(!o.noLoc&&F.loc&&p.location!==F.loc)return false;
@@ -1591,7 +1579,7 @@ function renderSecGrid(){
   icons();window.__bgKick&&window.__bgKick();
 }
 function cardHtml(p,i){
-  const links=p._l?SOCIALS.map(s=>p.social&&p.social[s.k]?'<span class="sbtn" title="'+s.n+'">'+socIcon(p,s.k)+'</span>':'').join(''):SOCIALS.map(s=>{const u=socUrl(p,s.k);return u?'<a class="sbtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" aria-label="'+s.n+' — '+esc(p.name)+'" title="'+s.n+'">'+socIcon(p,s.k)+'</a>':''}).join('');
+  const links=SOCIALS.map(s=>{const u=socUrl(p,s.k);return u?'<a class="sbtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" aria-label="'+s.n+' — '+esc(p.name)+'" title="'+s.n+'">'+socIcon(p,s.k)+'</a>':''}).join('');
   return '<article class="pcard" style="--i:'+Math.min(i,12)+'" tabindex="0" role="button" data-id="'+esc(p.id)+'" aria-label="عرض بيانات '+esc(p.name)+'">'
     +'<div class="pc-cover" style="--op:'+(p.coverPos==null?50:p.coverPos)+'%"><span class="mono" aria-hidden="true">'+esc(ini(p.name))+'</span>'+imgTag(p.cover,480)+'<span class="pc-cat">'+esc(p.category||'غير مصنّف')+'</span>'+(p.sample?'<span class="pc-ex">مثال</span>':'')+'</div>'
     +'<div class="pc-logo"><span><b aria-hidden="true">'+esc(ini(p.name))+'</b>'+imgTag(p.logo,160)+'</span></div>'
@@ -1604,20 +1592,8 @@ function renderResults(){
   if(!ready){box.innerHTML='';return}
   if(!(F.type||F.q||F.loc)){box.innerHTML='<div class="empty" style="margin-top:20px">'+IC.find+'<b>اختر قسماً لعرض مشاريعه</b><span>أو ابحث بالاسم، أو اضغط محافظة على الخريطة.</span></div>';return}
   if(!list.length){box.innerHTML='<div class="empty" style="margin-top:20px">'+IC.find+'<b>لا توجد مشاريع مطابقة</b><span>غيّر كلمات البحث أو أعد ضبط الفلاتر.</span><button class="btn sm" type="button" data-act="resetF">إعادة ضبط</button></div>';return}
-  const key=F.type+'|'+F.q+'|'+F.loc;if(key!==RK){RK=key;RL=RPAGE}
-  RLIST=list;
-  box.innerHTML='<div class="res-head" id="resHead"><h3>'+(F.q?'نتائج البحث عن «'+esc(F.q)+'»':esc(F.type||'نتائج البحث')+(F.loc?' — '+esc(F.loc):''))+'</h3><span class="pill num">'+list.length+' مشروع</span><button class="btn sm" type="button" data-act="resetF">عرض كل الأقسام</button></div><div class="rgrid">'+list.slice(0,RL).map((p,i)=>cardHtml(p,i)).join('')+'</div><div class="rmore" id="rMore"></div>';
-  moreBtn();
+  box.innerHTML='<div class="res-head" id="resHead"><h3>'+(F.q?'نتائج البحث عن «'+esc(F.q)+'»':esc(F.type||'نتائج البحث')+(F.loc?' — '+esc(F.loc):''))+'</h3><span class="pill num">'+list.length+' مشروع</span><button class="btn sm" type="button" data-act="resetF">عرض كل الأقسام</button></div><div class="rgrid">'+list.map((p,i)=>cardHtml(p,i)).join('')+'</div>';
 }
-/* عرض تدريجي: 24 بطاقة ثم المزيد عند الاقتراب من نهاية القائمة */
-const RPAGE=24;let RL=RPAGE,RK='',RLIST=[],rmObs=null;
-function moreBtn(){const m=$('#rMore');if(!m)return;if(rmObs){rmObs.disconnect();rmObs=null}
-  if(RLIST.length<=RL){m.innerHTML='';return}
-  m.innerHTML='<button class="btn" type="button" id="rMoreBtn">عرض المزيد ('+(RLIST.length-RL).toLocaleString('en')+' مشروع)</button>';
-  if('IntersectionObserver' in window){rmObs=new IntersectionObserver(es=>{if(es[0].isIntersecting)showMore()},{rootMargin:'600px'});rmObs.observe($('#rMoreBtn'))}}
-function showMore(){const g=$('#results .rgrid');if(!g||RL>=RLIST.length)return;const from=RL;RL=Math.min(RLIST.length,RL+RPAGE*2);
-  g.insertAdjacentHTML('beforeend',RLIST.slice(from,RL).map((p,i)=>cardHtml(p,i)).join(''));icons();moreBtn()}
-document.addEventListener('click',e=>{if(e.target.closest('#rMoreBtn'))showMore()});
 document.addEventListener('error',e=>{if(e.target&&e.target.tagName==='IMG'&&!e.target.dataset.keep)e.target.remove()},true);
 /* ميلان ثلاثي الأبعاد + لمعان يتبع المؤشر (للفأرة فقط) */
 const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
@@ -1682,7 +1658,7 @@ const METRICS={
   govs:{label:'المحافظات',val:()=>new Set(all().map(p=>p.location).filter(g=>govBy(g))).size,sub:()=>'من أصل 11 محافظة'},
   locations:{label:'عدد المواقع',val:()=>new Set(all().map(p=>p.location).filter(Boolean)).size,sub:()=>'محافظة أو موقع'},
   accounts:{label:'حسابات التواصل',val:()=>all().reduce((n,p)=>n+SOCIALS.filter(s=>(p.social||{})[s.k]).length,0),sub:()=>'حساب مسجّل'},
-  photos:{label:'الصور المرفوعة',val:()=>all().reduce((n,p)=>n+(p.logo?1:0)+(p.cover?1:0)+(p.pc!=null?p.pc:(p.photos||[]).length),0),sub:()=>'صورة في Drive'},
+  photos:{label:'الصور المرفوعة',val:()=>all().reduce((n,p)=>n+(p.logo?1:0)+(p.cover?1:0)+(p.photos||[]).length,0),sub:()=>'صورة في Drive'},
   filtered:{label:'نتائج البحث الحالية',val:()=>getFiltered().length,sub:()=>'مطابقة للفلاتر'}
 };
 /* أفضل 5 مشاريع: الأكثر إعجاباً، ثم الأحدث */
@@ -1699,10 +1675,7 @@ const OM_VIEW=[[16.3,52.0],[26.5,60.0]];              // [جنوب غرب، شم
 const MAP={sel:null,n:0};
 let LM=null,LPINS=null,LBASE='road';const LTILE={},LMK=new Map();
 const fmtLL=(a,b)=>(+a).toFixed(5)+', '+(+b).toFixed(5);
-const PPC=new WeakMap();
 function pinPos(p){
-  if(PPC.has(p))return PPC.get(p);const r=pinPos0(p);PPC.set(p,r);return r}
-function pinPos0(p){
   let lat,lng,ex=false;
   if(p.lat!=null&&p.lng!=null&&inOman(p.lat,p.lng)){lat=+p.lat;lng=+p.lng;ex=true}
   else{const g=govBy(p.location);if(!g)return null;let h=0;for(const c of String(p.id))h=(h*31+c.charCodeAt(0))>>>0;
@@ -1724,30 +1697,16 @@ function setBase(id){
   if(!LM.hasLayer(LTILE[LBASE]))LTILE[LBASE].addTo(LM);
   $('#mapBox').dataset.base=LBASE;const b=$('#mapLayerBtn');if(b)b.title=LBASE==='road'?'عرض القمر الصناعي':LBASE==='sat'?'عرض الهجين (شوارع وأسماء)':'العودة إلى خريطة الشوارع';
 }
-/* ====== دبابيس الخريطة: تجميع (clusters) حتى تتحمّل آلاف المشاريع ====== */
-const MAXPIN=250;
 function drawPins(){
-  const list=getFiltered().map(p=>[p,pinPos(p)]).filter(x=>x[1]);MAP.n=list.length;MAP.pts=list;
-  paintPins();
+  const list=getFiltered().map(p=>[p,pinPos(p)]).filter(x=>x[1]);MAP.n=list.length;
+  if(LM&&LPINS){
+    LPINS.clearLayers();LMK.clear();
+    list.forEach(([p,pos])=>{
+      const ic=L.divIcon({className:'lpinw',html:'<div class="lpin'+(pos.ex?'':' apx')+(MAP.sel===p.id?' sel':'')+'"><span class="lb"><b aria-hidden="true">'+esc(ini(p.name))+'</b>'+imgTag(p.logo,100)+'</span></div>',iconSize:[38,46],iconAnchor:[19,46]});
+      const mk=L.marker([pos.lat,pos.lng],{icon:ic,title:p.name,alt:p.name,keyboard:true,riseOnHover:true});
+      mk.on('click',()=>showMapCard(p.id,false));LMK.set(p.id,mk);LPINS.addLayer(mk)});
+  }
   if(MAP.sel&&!list.some(x=>x[0].id===MAP.sel))hideCard();
-}
-function pinIcon(p,pos){return L.divIcon({className:'lpinw',html:'<div class="lpin'+(pos.ex?'':' apx')+(MAP.sel===p.id?' sel':'')+'"><span class="lb"><b aria-hidden="true">'+esc(ini(p.name))+'</b>'+imgTag(p.logo,100)+'</span></div>',iconSize:[38,46],iconAnchor:[19,46]})}
-function paintPins(){
-  if(!LM||!LPINS)return;LPINS.clearLayers();LMK.clear();
-  const pts=MAP.pts||[],z=LM.getZoom(),b=LM.getBounds().pad(.25);
-  const vis=pts.filter(x=>b.contains([x[1].lat,x[1].lng]));
-  const single=(p,pos)=>{const mk=L.marker([pos.lat,pos.lng],{icon:pinIcon(p,pos),title:p.name,alt:p.name,keyboard:true,riseOnHover:true});
-    mk.on('click',()=>showMapCard(p.id,false));LMK.set(p.id,mk);LPINS.addLayer(mk)};
-  if(vis.length<=MAXPIN){vis.forEach(([p,pos])=>single(p,pos));return}
-  /* تجميع بشبكة بكسلات: كل خلية 64px، وتُفصَّل المجموعات عند التقريب */
-  const CELL=64,cells=new Map();
-  vis.forEach(x=>{const q=LM.project([x[1].lat,x[1].lng],z),k=Math.floor(q.x/CELL)+':'+Math.floor(q.y/CELL);let c=cells.get(k);if(!c){c={n:0,la:0,lo:0,items:[]};cells.set(k,c)}c.n++;c.la+=x[1].lat;c.lo+=x[1].lng;c.items.push(x)});
-  cells.forEach(c=>{
-    if(c.n===1||(MAP.sel&&c.items.some(x=>x[0].id===MAP.sel)&&c.n<=3)){c.items.forEach(([p,pos])=>single(p,pos));return}
-    const sz=c.n>999?54:c.n>99?46:38,lab=c.n>9999?Math.round(c.n/1000)+'k':c.n;
-    const mk=L.marker([c.la/c.n,c.lo/c.n],{icon:L.divIcon({className:'lcluw',html:'<div class="lclu" style="width:'+sz+'px;height:'+sz+'px"><b>'+lab+'</b></div>',iconSize:[sz,sz],iconAnchor:[sz/2,sz/2]}),keyboard:true,title:c.n+' مشروع'});
-    mk.on('click',()=>{const bb=L.latLngBounds(c.items.map(x=>[x[1].lat,x[1].lng]));if(c.n>1&&bb.isValid()&&(bb.getNorthEast().distanceTo(bb.getSouthWest())>30))LM.fitBounds(bb.pad(.3),{maxZoom:17});else LM.setView(mk.getLatLng(),Math.min(19,LM.getZoom()+2))});
-    LPINS.addLayer(mk)});
 }
 function markPins(){LMK.forEach((mk,id)=>{const el=mk.getElement&&mk.getElement(),pin=el&&el.querySelector('.lpin');if(pin)pin.classList.toggle('sel',id===MAP.sel);if(mk.setZIndexOffset)mk.setZIndexOffset(id===MAP.sel?1000:0)})}
 function hideCard(){MAP.sel=null;const c=$('#mapCard');if(c)c.hidden=true;markPins()}
@@ -1792,7 +1751,6 @@ function initMap(){
   LPINS=L.layerGroup().addTo(LM);
   GOV.forEach(g=>L.marker([g.lat,g.lng],{icon:L.divIcon({className:'lgovw',html:'<button type="button" class="lgov" data-gov="'+g.n+'">'+g.n+'</button>',iconSize:[0,0]}),keyboard:false}).addTo(LM));
   LM.on('zoomend',()=>box.classList.toggle('zfar',LM.getZoom()<=8));
-  let mvT;LM.on('moveend',()=>{clearTimeout(mvT);mvT=setTimeout(paintPins,60)});
   LM.on('mousemove',e=>{$('#mapLL').textContent=fmtLL(e.latlng.lat,e.latlng.lng)});
   LM.on('click',()=>hideCard());
   /* Ctrl + العجلة للتقريب (حتى لا تعلق الصفحة أثناء التمرير) */
@@ -1837,11 +1795,8 @@ $('#linkForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#urlI
   URL_=v;S.url=v;save();closeM('mLink');toast('تم حفظ رابط الربط');load()});
 
 /* تفاصيل المشروع */
-let DETAIL_ID='';
-function openDetail(id,full){
+function openDetail(id){
   const p=all().find(x=>x.id===id);if(!p)return;
-  if(p._l&&!full){loadFull(id).then(()=>{if(!$('#mDetail').hidden&&DETAIL_ID===id)openDetail(id,true)});}
-  DETAIL_ID=id;
   const links=SOCIALS.map(s=>{const v=p.social&&p.social[s.k],u=socUrl(p,s.k);return u?'<a class="lk" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+socIcon(p,s.k)+'<b>'+s.n+'</b><span>'+esc(v.n||String(v.u).replace(/^https?:\/\//,''))+'</span></a>':''}).join('');
   const photos=(p.photos||[]).map(f=>'<a class="ph" href="'+esc(thumb(f,1600))+'" target="_blank" rel="noopener noreferrer"><img src="'+esc(thumb(f,400))+'" alt="صورة من '+esc(p.name)+'" loading="lazy" referrerpolicy="no-referrer"></a>').join('');
   const ml=mapLink(p),pp=pinPos(p),onMap=!!pp;
@@ -1861,7 +1816,7 @@ function openDetail(id,full){
 
 
 /* ====== اللايك ====== */
-const likeOf=id=>Object.assign({c:0,n:[],me:false},LIKES[id]);
+const likeOf=id=>LIKES[id]||{c:0,n:[],me:false};
 const fmtT=t=>{try{return new Intl.DateTimeFormat('ar-OM-u-ca-gregory-nu-latn',{dateStyle:'short',timeStyle:'short'}).format(new Date(t))}catch(e){return ''}};
 let nameCb=null;
 function askName(cb,force){if(ME.name&&!force){cb&&cb();return}nameCb=cb;$('#nmIn').value=ME.name;$('#nmErr').hidden=true;openM('mName')}
@@ -2072,7 +2027,6 @@ $('#loPaste').addEventListener('click',()=>{
 /* عند العودة من خرائط جوجل: نحاول لصق الرابط المنسوخ تلقائياً */
 document.addEventListener('visibilitychange',()=>{if(pmWait&&!document.hidden&&!$('#mForm').hidden){pasteClip(true).then(ok=>{if(ok)pmWait=false})}});
 function openForm(p,pw){
-  if(p&&p._l&&!p.sample){toast('جارٍ تحميل بيانات المشروع…');loadFull(p.id).then(q=>{if(q&&!q._l)openForm(q,pw);else toast('تعذّر تحميل بيانات المشروع، حاول مرة أخرى.','err')});return}
   curPw=pw||null;
   D={coverPos:p&&p.coverPos!=null?p.coverPos:50,id:p?p.id:null,logo:p?p.logo||'':'',cover:p?p.cover||'':'',logoBlob:null,coverBlob:null,logoPrev:p&&p.logo?imgUrl(p.logo,200):'',coverPrev:p&&p.cover?imgUrl(p.cover,600):'',removed:[],icons:{},iconFor:null};
   $('#fTitle').textContent=p?'تعديل «'+p.name+'»':'إضافة مشروع';
@@ -2227,7 +2181,7 @@ function applyAuth(){
   $$('#gdock [data-act="addProject"],#gdock [data-act="editTop"],#gdock [data-act="deleteTop"]').forEach(b=>{b.classList.toggle('locked',!on);b.setAttribute('aria-disabled',on?'false':'true');
     const t=b.querySelector('.gd-t');if(t){if(!t.dataset.o)t.dataset.o=t.textContent;t.textContent=on?t.dataset.o:t.dataset.o+' (سجّل دخولك)'}b.title=on?'':'سجّل دخولك كتاجر لتفعيل هذا الخيار'});
   /* أدوات المشرف فقط: تظهر بعد دخول المشرف وتُخفى عن التجار والزوار */
-  ['#linkTop','#bkBtn','#editTextBtn','#inboxBtn','#admBtn','.tk-ed'].forEach(q=>{const e=$(q);if(e)e.hidden=!ADMIN_PW});
+  ['#linkTop','#bkBtn','#editTextBtn','#inboxBtn','#admBtn'].forEach(q=>{const e=$(q);if(e)e.hidden=!ADMIN_PW});
   {const hi=$('#heroIcon');if(hi){hi.classList.toggle('adm',!!ADMIN_PW);hi.title=ADMIN_PW?'تغيير الأيقونة (PNG أو SVG)':''}}
   if(!ADMIN_PW&&document.body.classList.contains('editing')){document.body.classList.remove('editing');const t=$('#editTextBtn');if(t)t.setAttribute('aria-pressed','false');const h=$('#editHint');if(h)h.hidden=true}
   $$('#gdock [data-act="dlPage"]').forEach(b=>{b.hidden=!ADMIN_PW;const ok=!!ADMIN_PW;b.classList.toggle('locked',!ok);b.setAttribute('aria-disabled',ok?'false':'true');
@@ -2284,6 +2238,29 @@ async function openMer(){if(!ADMIN_PW)return;$('#mrQ').value='';$('#mrList').inn
 $('#mrQ').addEventListener('input',merPaint);
 
 /* لوحة المشرف: عدد المشاريع والمستخدمين وآخر المشاريع */
+
+/* ===== صورة معاينة الرابط (واتساب/تيليجرام): نفس أيقونة العنوان + الاسم، 1200×630 ===== */
+async function makeOgPng(){
+  const W=1200,H=630,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
+  x.fillStyle='#14110a';x.fillRect(0,0,W,H);
+  const title=(S.texts&&S.texts.title)||'دكان بيتنا';
+  try{await document.fonts.load('700 120px "Aref Ruqaa"')}catch(e){}
+  // الأيقونة الحالية: صورة مرفوعة أو أيقونة Lucide المرسومة في العنوان
+  const inner=$('#heroIconInner');let src='';
+  const im=inner&&inner.querySelector('img'),sv=inner&&inner.querySelector('svg');
+  if(im)src=im.src;
+  else if(sv){const cl=sv.cloneNode(true);cl.setAttribute('xmlns','http://www.w3.org/2000/svg');cl.setAttribute('width','200');cl.setAttribute('height','200');cl.setAttribute('stroke','#14110a');cl.removeAttribute('class');cl.removeAttribute('style');src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(new XMLSerializer().serializeToString(cl))}
+  const S0=260,ix=W-110-S0,iy=(H-S0)/2;
+  x.fillStyle='#e4b84e';x.beginPath();x.roundRect(ix,iy,S0,S0,64);x.fill();
+  if(src){await new Promise(r=>{const i=new Image();i.onload=()=>{
+      if(im){x.save();x.beginPath();x.roundRect(ix,iy,S0,S0,64);x.clip();x.drawImage(i,ix,iy,S0,S0);x.restore()}
+      else x.drawImage(i,ix+S0*.26,iy+S0*.26,S0*.48,S0*.48);r()};i.onerror=r;i.src=src})}
+  x.fillStyle='#e4b84e';x.textAlign='right';x.textBaseline='middle';x.direction='rtl';
+  x.font='700 130px "Aref Ruqaa","Readex Pro",sans-serif';x.fillText(title,ix-50,H/2-20);
+  x.fillStyle='#d8d2c2';x.font='500 40px "Readex Pro",sans-serif';x.fillText('دليل المشاريع المنزلية في عُمان',ix-50,H/2+80);
+  return new Promise(r=>c.toBlob(r,'image/png'));
+}
+$('#aOg').addEventListener('click',async()=>{try{const b=await makeOgPng(),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='og-image.png';document.body.appendChild(a);a.click();a.remove();toast('تم تنزيل og-image.png — ارفعها بجانب الصفحة')}catch(e){toast('تعذر إنشاء الصورة','err')}});
 function openAdm(){if(!ADMIN_PW)return;const real=PRJ.filter(p=>!p.sample),last=real.slice().sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)).slice(0,8);
   $('#aPrj').textContent=real.length;$('#aUsr').textContent='…';$('#aSec').textContent=new Set(real.map(p=>p.category||'غير مصنّف')).size;
   $('#aLast').innerHTML=last.length?last.map(p=>'<button type="button" class="arow" data-open="'+esc(p.id)+'"><b>'+esc(p.name)+'</b><span>'+esc(p.category||'غير مصنّف')+(p.location?' · '+esc(p.location):'')+'</span><small>'+esc(fmtDate(p.createdAt,true)||'—')+'</small></button>').join(''):'<p class="nosoc">لا توجد مشاريع بعد.</p>';
@@ -2339,7 +2316,11 @@ $('#fontGrid').addEventListener('click',e=>{const b=e.target.closest('[data-font
 const HVS={
  arc:{n:'قوس',sp:1.06,rot:-12,rm:44,z:-14,b:1,sc:.035,wv:0,rz:0,fade:3.5,h:1},
  cover:{n:'غلاف',sp:.62,rot:-40,rm:62,z:-130,b:1.12,sc:.1,wv:0,rz:0,fade:3.2,h:1},
+ wave:{n:'موجة',sp:1.08,rot:0,rm:0,z:0,b:1,sc:.03,wv:28,rz:2.6,fade:3.8,h:1},
+ sphere:{n:'كرة',fn:'sphere',sp:.9,spd:.8,h:1.95,tilt:-12},
+ ring:{n:'حلقة',fn:'ring',sp:.9,spd:.5,h:1.9,tilt:-16},
  wheel:{n:'عجلة',fn:'wheel',sp:.9,spd:.3,h:2.25,tilt:0},
+ fan:{n:'مروحة',fn:'fan',sp:.6,spd:.26,h:1.85,tilt:0},
  stack:{n:'كومة',fn:'stack',sp:.5,spd:.22,h:1.15,tilt:0}};
 const HVPK=['sp','rot','rm','z','b','sc','wv','rz','fade'];
 const HV={items:[],sig:'',pos:0,v:0,fling:0,hover:false,drag:false,moved:0,vis:true,t:0,cw:190,cur:Object.assign({},HVS.arc),style:'arc',speed:.32,ch:240,last:''};
@@ -2411,7 +2392,7 @@ function shPaint(){
   $('#shStyle').innerHTML=Object.keys(HVS).map(k=>'<button type="button" class="chip'+(SHD.style===k?' on':'')+'" data-s="'+k+'" aria-pressed="'+(SHD.style===k)+'">'+HVS[k].n+'</button>').join('');
   $$('#shMode .chip').forEach(b=>{const on=b.dataset.m===SHD.mode;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
   $('#shOnly').checked=SHD.only;$('#shPickW').hidden=SHD.mode!=='pick';
-  $('#shPick').innerHTML=PRJ.filter(p=>!p.sample).slice(0,300).map(p=>'<label><input type="checkbox" data-id="'+esc(p.id)+'"'+(SHD.ids.has(p.id)?' checked':'')+'> '+esc(p.name)+'</label>').join('')||'<p class="nosoc">لا توجد مشاريع بعد.</p>';
+  $('#shPick').innerHTML=PRJ.filter(p=>!p.sample).map(p=>'<label><input type="checkbox" data-id="'+esc(p.id)+'"'+(SHD.ids.has(p.id)?' checked':'')+'> '+esc(p.name)+'</label>').join('')||'<p class="nosoc">لا توجد مشاريع بعد.</p>';
   $('#shUp').innerHTML=SHD.imgs.map((u,i)=>'<div class="th"><img src="'+esc(u)+'" alt=""><button type="button" data-rm="'+i+'" aria-label="حذف">×</button></div>').join('')+(SHD.imgs.length<6?'<button type="button" class="add" id="shAdd" aria-label="إضافة صورة">+</button>':'')}
 const hvCompress=f=>new Promise((res,rej)=>{const im=new Image(),u=URL.createObjectURL(f);im.onload=()=>{const k=Math.min(1,600/Math.max(im.width,im.height)),cv=document.createElement('canvas');cv.width=Math.round(im.width*k);cv.height=Math.round(im.height*k);cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);URL.revokeObjectURL(u);res(cv.toDataURL('image/jpeg',.68))};im.onerror=rej;im.src=u});
 $('#shStyle').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(b){SHD.style=b.dataset.s;shPaint()}});
@@ -2436,7 +2417,7 @@ const H={
   deleteTop(){if(!canAct()){openLogin(()=>H.deleteTop());return}const f=ADMIN_PW?null:mine;if(!PRJ.some(f||(()=>true))){toast('لا توجد متاجر مسجّلة باسمك.','err');return}openPick('اختر المشروع للحذف',id=>deleteProject(id,ADMIN_PW),f)},
   download:downloadStandalone,dlPage(){if(!ADMIN_PW){toast('تنزيل الصفحة للمشرف فقط. سجّل دخولك كمشرف من زر الدخول.','err');return}downloadStandalone()},addKpi:openKpi,
   delKpi(t,e){e.stopPropagation();S.kpis=S.kpis.filter(k=>k.id!==t.dataset.id);save();renderKPIs()},
-  addSec(){openSecNew()},linkDrive(){openLink()},theme(){openTheme()},backup(){openBackup()},tickerEdit(){if(!ADMIN_PW)return;openTicker()},mapZoomIn(){LM&&LM.zoomIn()},mapZoomOut(){LM&&LM.zoomOut()},mapReset(){fitOman()},mapLayer(){setBase(LBASE==='road'?'sat':LBASE==='sat'?'hyb':'road');S.mapBase=LBASE;save()},mapDetail(t){openDetail(t.dataset.id)},mapCardClose(){hideCard()},
+  addSec(){openSecNew()},linkDrive(){openLink()},theme(){openTheme()},backup(){openBackup()},tickerEdit(){openTicker()},mapZoomIn(){LM&&LM.zoomIn()},mapZoomOut(){LM&&LM.zoomOut()},mapReset(){fitOman()},mapLayer(){setBase(LBASE==='road'?'sat':LBASE==='sat'?'hyb':'road');S.mapBase=LBASE;save()},mapDetail(t){openDetail(t.dataset.id)},mapCardClose(){hideCard()},
   resetF:resetFilters,copy(t){copyText(t.dataset.v)},openChat(){toggleChat(true)},closeChat(){toggleChat(false)},
   chatIcon(){openIcons(ic=>{S.chatIcon=ic;save();applyTexts();toast('تم تغيير أيقونة المساعد')})},help(){openM('mHelp')},
   scrollContact(){$('#contactRow').scrollIntoView({behavior:'smooth',block:'center'});$$('.cpill').forEach(x=>x.animate([{transform:'scale(1)'},{transform:'scale(1.07)'},{transform:'scale(1)'}],{duration:700}))}
@@ -2476,9 +2457,7 @@ function applyTexts(){$$('[data-edit]').forEach(el=>{const v=S.texts[el.dataset.
   icons()}
 let editing=false;
 function setEditing(on){editing=on;document.body.classList.toggle('editing',on);$$('[data-edit]').forEach(el=>{el.contentEditable=on?'true':'false';el.spellcheck=false});$('#editTextBtn').setAttribute('aria-pressed',String(on));$('#editHint').hidden=!on}
-document.addEventListener('focusout',e=>{const el=e.target.closest&&e.target.closest('[data-edit]');if(el&&editing){S.texts[el.dataset.edit]=el.textContent.trim();if(el.dataset.edit==='title')document.title=el.textContent.trim();save();txPush()}});
-/* حفظ تلقائي لنصوص الصفحة في Drive (للمشرف) بعد توقف التعديل ثانيتين */
-let txT=0;function txPush(){if(!ADMIN_PW)return;clearTimeout(txT);txT=setTimeout(()=>{pushSiteNow(ADMIN_PW).catch(x=>toast(errText(x),'err'))},1800)}
+document.addEventListener('focusout',e=>{const el=e.target.closest&&e.target.closest('[data-edit]');if(el&&editing){S.texts[el.dataset.edit]=el.textContent.trim();if(el.dataset.edit==='title')document.title=el.textContent.trim();save()}});
 document.addEventListener('keydown',e=>{if(editing&&e.key==='Enter'&&e.target.closest&&e.target.closest('[data-edit]')){e.preventDefault();e.target.blur()}});
 document.addEventListener('paste',e=>{if(editing&&e.target.closest&&e.target.closest('[data-edit]')){e.preventDefault();document.execCommand('insertText',false,(e.clipboardData||window.clipboardData).getData('text/plain').replace(/\s+/g,' '))}});
 $('#modeBtn').addEventListener('click',()=>{S.mode=S.mode==='day'?'night':'day';save();applyTheme()});
@@ -2598,12 +2577,12 @@ function renderTicker(){
 let tkT=0;addEventListener('resize',()=>{clearTimeout(tkT);tkT=setTimeout(renderTicker,250)});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(renderTicker);
 function paintTk(){const l=tkList();$('#tkRows').innerHTML=l.length?l.map((s,i)=>'<div class="tkrow"><input type="text" maxlength="140" value="'+esc(s)+'" data-i="'+i+'" aria-label="النص رقم '+(i+1)+'"><button class="btn sm danger" type="button" data-del="'+i+'" aria-label="حذف النص">×</button></div>').join(''):'<p class="sub">لا توجد نصوص، فالشريط مخفي. أضف نصاً ليظهر.</p>'}
-const tkSet=a=>{S.ticker=a;S.siteLocal=true;save();renderTicker();txPush()};
+const tkSet=a=>{S.ticker=a;S.siteLocal=true;save();renderTicker()};
 function openTicker(){paintTk();openM('mTicker')}
 $('#tkRows').addEventListener('change',e=>{const i=e.target.dataset&&e.target.dataset.i;if(i==null)return;const a=tkList().slice(),v=e.target.value.trim();if(v)a[+i]=v;else a.splice(+i,1);tkSet(a);paintTk()});
 $('#tkRows').addEventListener('click',e=>{const b=e.target.closest('[data-del]');if(!b)return;const a=tkList().slice();a.splice(+b.dataset.del,1);tkSet(a);paintTk()});
 $('#tkForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#tkIn').value.trim();if(!v)return;tkSet([...tkList(),v]);$('#tkIn').value='';paintTk()});
-$('#tkDef').addEventListener('click',()=>{delete S.ticker;S.siteLocal=true;save();renderTicker();paintTk();txPush()});
+$('#tkDef').addEventListener('click',()=>{delete S.ticker;S.siteLocal=true;save();renderTicker();paintTk()});
 
 /* ====== نافذة المظهر ====== */
 function paintTheme(){
@@ -2621,14 +2600,14 @@ $('#thReset').addEventListener('click',()=>{if(S.tcol)delete S.tcol[S.theme||'go
 /* حفظ المظهر والشريط لجميع الزوار داخل meta.json في Drive */
 async function pushSiteNow(pw){
   const ts=Date.now();S.meta._site={ts,theme:S.theme||'gold',tcol:S.tcol||{},bg:S.bg||'auto',font:S.font||'def',ticker:Array.isArray(S.ticker)?S.ticker:null,
-    icon:(S.heroIcon&&S.heroIcon.type==='img')?S.heroIcon:null,title:S.texts.title||'',texts:Object.assign({},S.texts)};S.siteLocal=false;S.siteTs=ts;save();
+    icon:(S.heroIcon&&S.heroIcon.type==='img')?S.heroIcon:null,title:S.texts.title||''};S.siteLocal=false;S.siteTs=ts;save();
   await pushMeta(pw,'تم حفظ المظهر والأيقونة والعنوان لجميع الزوار في Drive')}
 function pushSite(){askPass('لحفظ المظهر والشريط لجميع الزوار في Drive.',pushSiteNow)}
 $('#thPush').addEventListener('click',pushSite);$('#tkPush').addEventListener('click',pushSite);
 /* تطبيق إعدادات الموقع القادمة من Drive ما لم يعدّل الزائر مظهره محلياً */
 function applySite(){const s=S.meta&&S.meta._site;if(!s||S.siteLocal||(s.ts||0)<=(S.siteTs||0))return;
   S.theme=s.theme;S.tcol=s.tcol||{};S.bg=s.bg;if(s.font)S.font=s.font;if(Array.isArray(s.ticker))S.ticker=s.ticker;else delete S.ticker;
-  if(s.icon&&s.icon.type==='img')S.heroIcon=s.icon;if(s.title)S.texts.title=s.title;if(s.texts&&typeof s.texts==='object')S.texts=Object.assign({},s.texts);
+  if(s.icon&&s.icon.type==='img')S.heroIcon=s.icon;if(s.title)S.texts.title=s.title;
   S.siteTs=s.ts;save();try{applyTexts()}catch(_){}}
 
 /* ====== الحفظ والنسخ: Excel + تصدير/استيراد JSON عبر Drive ====== */
@@ -2672,7 +2651,7 @@ function showExport(){const x=S.lastExport;if(!x)return;
   $('#bkInfo').innerHTML='<div class="ok">آخر تصدير: <b>'+esc(fmtDate(x.ts,true))+'</b></div><div>'+(safeDrv(x.url)?'<a href="'+esc(safeDrv(x.url))+'" target="_blank" rel="noopener noreferrer">'+esc(x.name||'الملف')+'</a> · ':'')+'<a href="'+esc(safeDrv(x.folderUrl)||FOLDER_URL)+'" target="_blank" rel="noopener noreferrer">فتح المجلد</a> · <a href="#" id="bkLocal">تنزيل JSON على الجهاز</a></div>'}
 async function doExport(pw){
   const b=$('#bkDrive'),lab=b.querySelector('b'),t0=lab.textContent;b.disabled=true;lab.textContent='جارٍ الحفظ في Drive…';
-  try{await ensureAllFull();const r=await api({action:'drive_save',admin:pw,name:DRV_PREFIX+stamp()+'.json',content:expJson()},120000);
+  try{const r=await api({action:'drive_save',admin:pw,name:DRV_PREFIX+stamp()+'.json',content:expJson()},120000);
     S.lastExport={ts:Date.now(),name:r.name,url:r.url,folderUrl:r.folderUrl};save();showExport();toast('تم تصدير النسخة إلى مجلد «المشاريع» في Drive')}
   catch(e){bkMsg(esc(bkErr(e)),'er')}finally{b.disabled=false;lab.textContent=t0}}
 async function mergeIn(d,tag){
@@ -2694,7 +2673,7 @@ async function mergeIn(d,tag){
   return {n:PRJ.length,added,upd}}
 const impMsg=r=>bkMsg('تم الدمج: المشاريع الآن <b>'+r.n+'</b> (أُضيف '+r.added+'، حُدّث '+r.upd+'). المشاريع نفسها تبقى في مجلدات Drive؛ الاستيراد يدمج نسخة العرض والإعدادات.','ok');
 function openBackup(){$('#bkMain').hidden=false;$('#bkImpBox').hidden=true;$('#bkInfo').innerHTML='';showExport();$('#bkUndo').hidden=true;idb.get('pre-import').then(s=>{$('#bkUndo').hidden=!(s&&s.data)});openM('mBackup')}
-const exp1=(fn,lbl)=>async()=>{try{await ensureAllFull();const n=fn();bkMsg('تم تنزيل ملف '+lbl+' ('+n+' مشروع).','ok')}catch(e){bkMsg(esc(e.message),'er')}};
+const exp1=(fn,lbl)=>()=>{try{const n=fn();bkMsg('تم تنزيل ملف '+lbl+' ('+n+' مشروع).','ok')}catch(e){bkMsg(esc(e.message),'er')}};
 $('#bkXlsx').addEventListener('click',exp1(xlsxNow,'Excel'));$('#bkCsv').addEventListener('click',exp1(csvNow,'CSV'));$('#bkJson').addEventListener('click',exp1(jsonNow,'JSON'));
 $('#bkDrive').addEventListener('click',()=>{if(!DRV_RE.test(URL_)){bkMsg('اربط الدليل برابط Apps Script أولاً (زر «ربط Drive»).','er');return}askPass('لتصدير نسخة JSON إلى مجلد «المشاريع» في Drive.',pw=>doExport(pw))});
 $('#bkImp').addEventListener('click',()=>{$('#bkMain').hidden=true;$('#bkImpBox').hidden=false});
@@ -2713,7 +2692,7 @@ $('#bkUndo').addEventListener('click',async()=>{
   try{const o=JSON.parse(s.data),url=S.url,lx=S.lastExport;Object.keys(S).forEach(k=>delete S[k]);Object.assign(S,o.S,{url});if(lx)S.lastExport=lx;
     PRJ=(o.PRJ||[]).map(normProj);cacheSave();applyTheme();applyTexts();renderTicker();renderAll();await idb.put('pre-import',null);$('#bkUndo').hidden=true;bkMsg('تم التراجع عن آخر استيراد.','ok')}
   catch(e){bkMsg('تعذّر التراجع: '+esc(e.message),'er')}});
-$('#bkInfo').addEventListener('click',async e=>{if(!e.target.closest('#bkLocal'))return;e.preventDefault();await ensureAllFull();
+$('#bkInfo').addEventListener('click',e=>{if(!e.target.closest('#bkLocal'))return;e.preventDefault();
   const url=URL.createObjectURL(new Blob([expJson()],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=DRV_PREFIX+stamp()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),4000)});
 /* اختبار الاتصال داخل نافذة الربط */
 $('#linkTest').addEventListener('click',async()=>{
@@ -2725,7 +2704,7 @@ $('#linkTest').addEventListener('click',async()=>{
   catch(e){box.innerHTML='<div class="er">تعذّر الوصول إلى الرابط. تأكد من النشر بصلاحية Anyone ومن صحة الرابط.</div>'}});
 
 /* ====== التحميل والتشغيل ====== */
-let cacheT;function cacheSave(){S.cache=[];save();clearTimeout(cacheT);cacheT=setTimeout(()=>idb.put('list-cache',{url:URL_,v:IDXV,projects:PRJ.filter(p=>!p.sample)}),800)}
+function cacheSave(){S.cache=PRJ.slice(0,200);save()}
 function renderNotices(){let nt='';
   if(!DRV_RE.test(URL_))nt='<div class="notice warn">'+IC.alert+'<div>الدليل غير مربوط بمجلد Drive، فلن تُحفظ المشاريع. <button class="btn sm" type="button" id="linkBtn">ربط Drive</button></div></div>';
   else if(errMsg0)nt='<div class="notice warn">'+IC.alert+'<div>'+esc(errMsg0)+' <button class="btn sm" type="button" id="retryBtn">إعادة المحاولة</button></div></div>';
@@ -2735,12 +2714,8 @@ function renderAll(){renderKPIs();renderSections();renderNotices();hvBuild();ico
 async function load(){
   errMsg0='';
   if(!DRV_RE.test(URL_)){ready=true;renderAll();return}
-  let cv='';
-  if(!PRJ.length){const c=await idb.get('list-cache');if(c&&Array.isArray(c.projects)&&c.projects.length&&c.url===URL_){PRJ=c.projects;cv=c.v||'';IDXV=cv;ready=true;renderAll()}}
-  try{const r=await fetchList(cv);
-    if(!r.notModified||!PRJ.length){PRJ=(r.projects||[]).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));IDXV=r.v}
-    LIKES=r.likes||{};if(r.meta&&Object.keys(r.meta).length)S.meta=r.meta;applySite();applyTheme();renderTicker();cacheSave()}
-  catch(e){if(!PRJ.length)errMsg0='تعذّر جلب المشاريع من Drive. '+errText(e)}
+  if(!PRJ.length&&Array.isArray(S.cache)&&S.cache.length){PRJ=S.cache.map(normProj);ready=true;renderAll()}
+  try{const r=await fetchList();PRJ=r.projects.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));LIKES=r.likes||{};if(r.meta&&Object.keys(r.meta).length)S.meta=r.meta;applySite();applyTheme();renderTicker();cacheSave()}catch(e){errMsg0='تعذّر جلب المشاريع من Drive. '+errText(e)}
   ready=true;renderAll();checkUnread();
 }
 applyTheme();applyTexts();renderTicker();setEditing(false);initMap();renderAll();window.__bgKick(true);load();applyAuth();sessCheck();
