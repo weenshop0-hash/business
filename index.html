@@ -1027,7 +1027,7 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
 <body>
 <canvas id="bgCanvas" aria-hidden="true"></canvas>
 <!-- شريط نصوص متحرك من اليسار إلى اليمين -->
-<div class="ticker" id="ticker" role="region" aria-label="شريط الإعلانات"><div class="tk-track" id="tkTrack"></div><button class="tk-ed" type="button" data-act="tickerEdit" aria-label="تعديل نصوص الشريط"><i data-lucide="pencil"></i></button></div>
+<div class="ticker" id="ticker" role="region" aria-label="شريط الإعلانات"><div class="tk-track" id="tkTrack"></div><button class="tk-ed" type="button" data-act="tickerEdit" aria-label="تعديل نصوص الشريط" hidden><i data-lucide="pencil"></i></button></div>
 
 <!-- ============ الترويسة ============ -->
 <header class="hero" id="top">
@@ -2227,7 +2227,7 @@ function applyAuth(){
   $$('#gdock [data-act="addProject"],#gdock [data-act="editTop"],#gdock [data-act="deleteTop"]').forEach(b=>{b.classList.toggle('locked',!on);b.setAttribute('aria-disabled',on?'false':'true');
     const t=b.querySelector('.gd-t');if(t){if(!t.dataset.o)t.dataset.o=t.textContent;t.textContent=on?t.dataset.o:t.dataset.o+' (سجّل دخولك)'}b.title=on?'':'سجّل دخولك كتاجر لتفعيل هذا الخيار'});
   /* أدوات المشرف فقط: تظهر بعد دخول المشرف وتُخفى عن التجار والزوار */
-  ['#linkTop','#bkBtn','#editTextBtn','#inboxBtn','#admBtn'].forEach(q=>{const e=$(q);if(e)e.hidden=!ADMIN_PW});
+  ['#linkTop','#bkBtn','#editTextBtn','#inboxBtn','#admBtn','.tk-ed'].forEach(q=>{const e=$(q);if(e)e.hidden=!ADMIN_PW});
   {const hi=$('#heroIcon');if(hi){hi.classList.toggle('adm',!!ADMIN_PW);hi.title=ADMIN_PW?'تغيير الأيقونة (PNG أو SVG)':''}}
   if(!ADMIN_PW&&document.body.classList.contains('editing')){document.body.classList.remove('editing');const t=$('#editTextBtn');if(t)t.setAttribute('aria-pressed','false');const h=$('#editHint');if(h)h.hidden=true}
   $$('#gdock [data-act="dlPage"]').forEach(b=>{b.hidden=!ADMIN_PW;const ok=!!ADMIN_PW;b.classList.toggle('locked',!ok);b.setAttribute('aria-disabled',ok?'false':'true');
@@ -2436,7 +2436,7 @@ const H={
   deleteTop(){if(!canAct()){openLogin(()=>H.deleteTop());return}const f=ADMIN_PW?null:mine;if(!PRJ.some(f||(()=>true))){toast('لا توجد متاجر مسجّلة باسمك.','err');return}openPick('اختر المشروع للحذف',id=>deleteProject(id,ADMIN_PW),f)},
   download:downloadStandalone,dlPage(){if(!ADMIN_PW){toast('تنزيل الصفحة للمشرف فقط. سجّل دخولك كمشرف من زر الدخول.','err');return}downloadStandalone()},addKpi:openKpi,
   delKpi(t,e){e.stopPropagation();S.kpis=S.kpis.filter(k=>k.id!==t.dataset.id);save();renderKPIs()},
-  addSec(){openSecNew()},linkDrive(){openLink()},theme(){openTheme()},backup(){openBackup()},tickerEdit(){openTicker()},mapZoomIn(){LM&&LM.zoomIn()},mapZoomOut(){LM&&LM.zoomOut()},mapReset(){fitOman()},mapLayer(){setBase(LBASE==='road'?'sat':LBASE==='sat'?'hyb':'road');S.mapBase=LBASE;save()},mapDetail(t){openDetail(t.dataset.id)},mapCardClose(){hideCard()},
+  addSec(){openSecNew()},linkDrive(){openLink()},theme(){openTheme()},backup(){openBackup()},tickerEdit(){if(!ADMIN_PW)return;openTicker()},mapZoomIn(){LM&&LM.zoomIn()},mapZoomOut(){LM&&LM.zoomOut()},mapReset(){fitOman()},mapLayer(){setBase(LBASE==='road'?'sat':LBASE==='sat'?'hyb':'road');S.mapBase=LBASE;save()},mapDetail(t){openDetail(t.dataset.id)},mapCardClose(){hideCard()},
   resetF:resetFilters,copy(t){copyText(t.dataset.v)},openChat(){toggleChat(true)},closeChat(){toggleChat(false)},
   chatIcon(){openIcons(ic=>{S.chatIcon=ic;save();applyTexts();toast('تم تغيير أيقونة المساعد')})},help(){openM('mHelp')},
   scrollContact(){$('#contactRow').scrollIntoView({behavior:'smooth',block:'center'});$$('.cpill').forEach(x=>x.animate([{transform:'scale(1)'},{transform:'scale(1.07)'},{transform:'scale(1)'}],{duration:700}))}
@@ -2476,7 +2476,9 @@ function applyTexts(){$$('[data-edit]').forEach(el=>{const v=S.texts[el.dataset.
   icons()}
 let editing=false;
 function setEditing(on){editing=on;document.body.classList.toggle('editing',on);$$('[data-edit]').forEach(el=>{el.contentEditable=on?'true':'false';el.spellcheck=false});$('#editTextBtn').setAttribute('aria-pressed',String(on));$('#editHint').hidden=!on}
-document.addEventListener('focusout',e=>{const el=e.target.closest&&e.target.closest('[data-edit]');if(el&&editing){S.texts[el.dataset.edit]=el.textContent.trim();if(el.dataset.edit==='title')document.title=el.textContent.trim();save()}});
+document.addEventListener('focusout',e=>{const el=e.target.closest&&e.target.closest('[data-edit]');if(el&&editing){S.texts[el.dataset.edit]=el.textContent.trim();if(el.dataset.edit==='title')document.title=el.textContent.trim();save();txPush()}});
+/* حفظ تلقائي لنصوص الصفحة في Drive (للمشرف) بعد توقف التعديل ثانيتين */
+let txT=0;function txPush(){if(!ADMIN_PW)return;clearTimeout(txT);txT=setTimeout(()=>{pushSiteNow(ADMIN_PW).catch(x=>toast(errText(x),'err'))},1800)}
 document.addEventListener('keydown',e=>{if(editing&&e.key==='Enter'&&e.target.closest&&e.target.closest('[data-edit]')){e.preventDefault();e.target.blur()}});
 document.addEventListener('paste',e=>{if(editing&&e.target.closest&&e.target.closest('[data-edit]')){e.preventDefault();document.execCommand('insertText',false,(e.clipboardData||window.clipboardData).getData('text/plain').replace(/\s+/g,' '))}});
 $('#modeBtn').addEventListener('click',()=>{S.mode=S.mode==='day'?'night':'day';save();applyTheme()});
@@ -2596,12 +2598,12 @@ function renderTicker(){
 let tkT=0;addEventListener('resize',()=>{clearTimeout(tkT);tkT=setTimeout(renderTicker,250)});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(renderTicker);
 function paintTk(){const l=tkList();$('#tkRows').innerHTML=l.length?l.map((s,i)=>'<div class="tkrow"><input type="text" maxlength="140" value="'+esc(s)+'" data-i="'+i+'" aria-label="النص رقم '+(i+1)+'"><button class="btn sm danger" type="button" data-del="'+i+'" aria-label="حذف النص">×</button></div>').join(''):'<p class="sub">لا توجد نصوص، فالشريط مخفي. أضف نصاً ليظهر.</p>'}
-const tkSet=a=>{S.ticker=a;S.siteLocal=true;save();renderTicker()};
+const tkSet=a=>{S.ticker=a;S.siteLocal=true;save();renderTicker();txPush()};
 function openTicker(){paintTk();openM('mTicker')}
 $('#tkRows').addEventListener('change',e=>{const i=e.target.dataset&&e.target.dataset.i;if(i==null)return;const a=tkList().slice(),v=e.target.value.trim();if(v)a[+i]=v;else a.splice(+i,1);tkSet(a);paintTk()});
 $('#tkRows').addEventListener('click',e=>{const b=e.target.closest('[data-del]');if(!b)return;const a=tkList().slice();a.splice(+b.dataset.del,1);tkSet(a);paintTk()});
 $('#tkForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#tkIn').value.trim();if(!v)return;tkSet([...tkList(),v]);$('#tkIn').value='';paintTk()});
-$('#tkDef').addEventListener('click',()=>{delete S.ticker;S.siteLocal=true;save();renderTicker();paintTk()});
+$('#tkDef').addEventListener('click',()=>{delete S.ticker;S.siteLocal=true;save();renderTicker();paintTk();txPush()});
 
 /* ====== نافذة المظهر ====== */
 function paintTheme(){
@@ -2619,14 +2621,14 @@ $('#thReset').addEventListener('click',()=>{if(S.tcol)delete S.tcol[S.theme||'go
 /* حفظ المظهر والشريط لجميع الزوار داخل meta.json في Drive */
 async function pushSiteNow(pw){
   const ts=Date.now();S.meta._site={ts,theme:S.theme||'gold',tcol:S.tcol||{},bg:S.bg||'auto',font:S.font||'def',ticker:Array.isArray(S.ticker)?S.ticker:null,
-    icon:(S.heroIcon&&S.heroIcon.type==='img')?S.heroIcon:null,title:S.texts.title||''};S.siteLocal=false;S.siteTs=ts;save();
+    icon:(S.heroIcon&&S.heroIcon.type==='img')?S.heroIcon:null,title:S.texts.title||'',texts:Object.assign({},S.texts)};S.siteLocal=false;S.siteTs=ts;save();
   await pushMeta(pw,'تم حفظ المظهر والأيقونة والعنوان لجميع الزوار في Drive')}
 function pushSite(){askPass('لحفظ المظهر والشريط لجميع الزوار في Drive.',pushSiteNow)}
 $('#thPush').addEventListener('click',pushSite);$('#tkPush').addEventListener('click',pushSite);
 /* تطبيق إعدادات الموقع القادمة من Drive ما لم يعدّل الزائر مظهره محلياً */
 function applySite(){const s=S.meta&&S.meta._site;if(!s||S.siteLocal||(s.ts||0)<=(S.siteTs||0))return;
   S.theme=s.theme;S.tcol=s.tcol||{};S.bg=s.bg;if(s.font)S.font=s.font;if(Array.isArray(s.ticker))S.ticker=s.ticker;else delete S.ticker;
-  if(s.icon&&s.icon.type==='img')S.heroIcon=s.icon;if(s.title)S.texts.title=s.title;
+  if(s.icon&&s.icon.type==='img')S.heroIcon=s.icon;if(s.title)S.texts.title=s.title;if(s.texts&&typeof s.texts==='object')S.texts=Object.assign({},s.texts);
   S.siteTs=s.ts;save();try{applyTexts()}catch(_){}}
 
 /* ====== الحفظ والنسخ: Excel + تصدير/استيراد JSON عبر Drive ====== */
