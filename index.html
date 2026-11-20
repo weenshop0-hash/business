@@ -380,6 +380,28 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   .hero-in{padding-block:16px 62px}.hero-main{margin-top:24px}
 }
 @media (max-width:360px){.actions{grid-template-columns:1fr}.secgrid{gap:8px}.stile b{font-size:.9rem}}
+
+/* ===== رسالة نجاح إضافة المشروع ===== */
+#mDone .sheet{overflow:hidden;text-align:center;max-width:440px;position:relative}
+.dn-in{padding:34px 24px 26px;position:relative}
+.dn-ring{width:104px;height:104px;margin:0 auto 14px;position:relative;display:grid;place-items:center}
+.dn-ring::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--a1) 35%,transparent),transparent 70%);animation:dnGlow 2s ease-out infinite}
+.dn-ring svg{width:104px;height:104px;position:relative;filter:drop-shadow(0 6px 14px color-mix(in srgb,var(--a1) 45%,transparent))}
+.dn-ring circle{fill:color-mix(in srgb,var(--a1) 16%,transparent);stroke:var(--a1);stroke-width:4;stroke-dasharray:302;stroke-dashoffset:302;transform-origin:center;transform:rotate(-90deg);animation:dnDraw .7s .1s cubic-bezier(.65,0,.35,1) forwards,dnPop .5s .8s ease-out}
+.dn-ring path{fill:none;stroke:var(--a1);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:dnDraw .45s .75s ease-out forwards}
+.dn-t{text-align:center;font-size:1.55rem;font-weight:800;margin:6px 0 6px;opacity:0;animation:dnUp .5s 1s ease-out forwards}
+.dn-n{text-align:center;font-weight:700;color:var(--a1);margin:0 0 14px;opacity:0;animation:dnUp .5s 1.15s ease-out forwards;word-break:break-word}
+.dn-m{margin:0;line-height:1.9;font-size:1.02rem;opacity:0;animation:dnUp .5s 1.35s ease-out forwards}
+.dn-h{display:inline-block;font-size:1.3em;vertical-align:-.1em;animation:dnBeat 1.1s 1.6s ease-in-out infinite;transform-origin:center}
+.dn-b{margin-top:20px;opacity:0;animation:dnUp .5s 1.55s ease-out forwards}
+.dn-cf{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.dn-cf i{position:absolute;top:-12px;width:9px;height:14px;border-radius:2px;background:var(--c);left:var(--x);opacity:0;animation:dnFall var(--d) var(--l) ease-in forwards}
+@keyframes dnDraw{to{stroke-dashoffset:0}}
+@keyframes dnPop{0%{transform:rotate(-90deg) scale(1)}50%{transform:rotate(-90deg) scale(1.08)}100%{transform:rotate(-90deg) scale(1)}}
+@keyframes dnUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes dnGlow{0%{transform:scale(.7);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+@keyframes dnBeat{0%,100%{transform:scale(1)}15%{transform:scale(1.32)}30%{transform:scale(1)}45%{transform:scale(1.22)}60%{transform:scale(1)}}
+@keyframes dnFall{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(420px) rotate(var(--r))}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 /* ============ هولوجرام الترويسة التفاعلي ============ */
@@ -1340,6 +1362,14 @@ html[data-bgm="none"] .foot{background:linear-gradient(180deg,color-mix(in srgb,
       <h3 class="mh">الخط</h3><div class="bggrid" id="fontGrid"></div>
       <div class="foot-actions" style="margin-top:18px"><button class="btn sm" type="button" id="thReset">إعادة ألوان هذا الثيم</button><button class="btn sm" type="button" id="thPush"><i data-lucide="cloud-upload"></i>حفظ للجميع (Drive)</button><button class="btn primary" type="button" data-close>تم</button></div></div></div>
 </div>
+<div class="modal" id="mDone" hidden role="dialog" aria-modal="true" aria-labelledby="dnT">
+  <div class="sheet sm"><div class="dn-cf" id="dnCf" aria-hidden="true"></div>
+    <div class="dn-in"><div class="dn-ring" aria-hidden="true"><svg viewBox="0 0 104 104"><circle cx="52" cy="52" r="48"/><path d="M32 54l14 14 27-30"/></svg></div>
+      <h2 class="dn-t" id="dnT">مبروك! تم إضافة مشروعك بنجاح 🎉</h2>
+      <p class="dn-n" id="dnN"></p>
+      <p class="dn-m">تكرماً انشر الموقع للمزيد من الزبائن والتجار، وشكراً من القلب <span class="dn-h" aria-hidden="true">❤️</span></p>
+      <div class="dn-b"><button class="btn primary" type="button" data-close>تم</button></div>
+    </div></div></div>
 <div class="modal" id="mTicker" hidden role="dialog" aria-modal="true" aria-labelledby="tkT">
   <div class="sheet sm"><button class="x" data-close type="button" aria-label="إغلاق"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     <div class="sheet-in"><h2 id="tkT">الشريط المتحرك</h2><p class="sub">أي نص تكتبه يتحرك في أعلى الصفحة من اليسار إلى اليمين.</p>
@@ -1804,6 +1834,10 @@ function initMap(){
 
 /* ====== نوافذ ====== */
 let lastFocus=null,zTop=0;
+/* رسالة النجاح بعد إضافة مشروع جديد: علامة صح متحركة + قصاصات ملوّنة */
+function showDone(name){$('#dnN').textContent=name||'';const cf=$('#dnCf');cf.innerHTML='';const cols=['#f5b82e','#ff6b6b','#4ecdc4','#a78bfa','#60a5fa','#34d399','#fb923c'];
+  for(let i=0;i<46;i++){const e=document.createElement('i');e.style.cssText='--x:'+(Math.random()*100).toFixed(1)+'%;--c:'+cols[i%cols.length]+';--d:'+(1.8+Math.random()*1.6).toFixed(2)+'s;--l:'+(0.9+Math.random()*0.9).toFixed(2)+'s;--r:'+Math.round(Math.random()*720-360)+'deg';cf.appendChild(e)}
+  const m=$('#mDone');m.hidden=true;void m.offsetWidth;openM('mDone')}
 function openM(id){lastFocus=document.activeElement;const m=$('#'+id);m.hidden=false;m.style.zIndex=100+(++zTop);document.body.classList.add('lock');icons();setTimeout(()=>{const f=m.querySelector('input:not([type=file]):not([type=radio]),textarea,.x');f&&f.focus()},40)}
 function closeM(id){$('#'+id).hidden=true;if(id==='mForm')curPw=null;if(!$('.modal:not([hidden])'))document.body.classList.remove('lock');if(lastFocus&&lastFocus.focus)try{lastFocus.focus()}catch(e){}}
 $$('.modal').forEach(m=>{m.addEventListener('mousedown',e=>{if(e.target===m&&m.id!=='mForm')closeM(m.id)});m.addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeM(m.id)})});
@@ -2144,7 +2178,7 @@ $('#form').addEventListener('submit',async e=>{
     const r=await api({action:'project_save',id:D.id,...AU(curPw),project:{name,category:cat,desc,link:linkV||'',location:loc,wilaya,area,lat:pos?pos.lat:null,lng:pos?pos.lng:null,mapUrl,kind:'home',coverPos:D.coverPos,social},images,remove:D.removed},120000);
     const np=normProj(r.project);if(SESS&&!D.id&&!(SESS.ids||[]).includes(np.id)){(SESS.ids=SESS.ids||[]).push(np.id);sessSave()}const i=PRJ.findIndex(x=>x.id===np.id);if(i>=0)PRJ[i]=np;else PRJ.unshift(np);
     PRJ.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));cacheSave();
-    const wasEdit=!!D.id;closeM('mForm');renderAll();if(mapWarn)setTimeout(()=>toast('حُفظ المشروع، لكن تعذّر استخراج إحداثيات دقيقة من الرابط فسيظهر موقعاً تقريبياً. الصق الرابط الكامل أو الإحداثيات (وتأكد من نشر Code.gs الجديد).','err'),600);toast(wasEdit?'تم حفظ التعديلات':'تم إنشاء مجلد «'+name+'» في Drive وإضافة المشروع');
+    const wasEdit=!!D.id;closeM('mForm');renderAll();if(mapWarn)setTimeout(()=>toast('حُفظ المشروع، لكن تعذّر استخراج إحداثيات دقيقة من الرابط فسيظهر موقعاً تقريبياً. الصق الرابط الكامل أو الإحداثيات (وتأكد من نشر Code.gs الجديد).','err'),600);if(wasEdit)toast('تم حفظ التعديلات');else showDone(name);
   }catch(err){$('#status').textContent='';toast(errText(err),'err');btn.disabled=false}
 });
 
